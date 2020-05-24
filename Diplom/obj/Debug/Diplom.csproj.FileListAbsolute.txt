@@ -82,7 +82,6 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.PositionListF
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ProjectForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ProjectListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.Properties.Resources.resources
-D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.SimpleReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.SolvedTasksComplexityCountReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.StateListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TaskForm.resources
@@ -100,3 +99,5 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.pdb
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csprojAssemblyReference.cache
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.StateEmployeeTasksCountReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TimeOutTasksReportForm.resources
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.DetailTimeOutReportForm.resources
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ReportForm.resources

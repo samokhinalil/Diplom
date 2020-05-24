@@ -100,6 +100,7 @@
             this.Controls.Add(this.laDateFrom);
             this.Controls.Add(this.reportViewer1);
             this.Name = "SolvedTasksComplexityCountReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет о количестве решенных задач по уровню сложности";
             this.Load += new System.EventHandler(this.SolvedTasksComplexityCountReportForm_Load);
             this.ResumeLayout(false);

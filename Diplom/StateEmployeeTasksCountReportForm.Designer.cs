@@ -86,7 +86,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(2, 75);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(620, 366);
+            this.reportViewer1.Size = new System.Drawing.Size(620, 450);
             this.reportViewer1.TabIndex = 11;
             // 
             // cbEmployee
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 441);
+            this.ClientSize = new System.Drawing.Size(624, 529);
             this.Controls.Add(this.laEmployee);
             this.Controls.Add(this.cbEmployee);
             this.Controls.Add(this.reportViewer1);
@@ -120,6 +120,7 @@
             this.Controls.Add(this.laDateTo);
             this.Controls.Add(this.laDateFrom);
             this.Name = "StateEmployeeTasksCountReportForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Отчет по статусу задач сотрудника";
             this.Load += new System.EventHandler(this.StateEmployeeTasksCountReportForm_Load);
             this.ResumeLayout(false);

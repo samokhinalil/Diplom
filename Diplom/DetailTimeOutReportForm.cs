@@ -12,27 +12,22 @@ using System.Windows.Forms;
 
 namespace Diplom
 {
-    public partial class TimeOutTasksReportForm : Form
+    public partial class DetailTimeOutReportForm : Form
     {
-        public TimeOutTasksReportForm()
+        public DetailTimeOutReportForm()
         {
             InitializeComponent();
         }
 
-        private void TimeOutTasksReportForm_Load(object sender, EventArgs e)
-        {
-            //this.reportViewer2.RefreshReport();
-        }
-
         private void BtnGenerateReport_Click(object sender, EventArgs e)
         {
-            var myData = ReportDao.GetTimeOutTasksCountReport(
+            var myData = ReportDao.GetTimeOutTasksInfoReport(
                 ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
-            reportViewer1.LocalReport.DataSources.Add(
+            reportViewer2.LocalReport.DataSources.Add(
                 new ReportDataSource("ITTasksDataSet", myData));
 
-            reportViewer1.RefreshReport();
+            reportViewer2.RefreshReport();
         }
     }
 }
