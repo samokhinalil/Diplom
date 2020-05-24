@@ -1,0 +1,9 @@
+D:\Мои документы\ВКР\Diplom\Storage\bin\Debug\Storage.dll
+D:\Мои документы\ВКР\Diplom\Storage\bin\Debug\Storage.pdb
+D:\Мои документы\ВКР\Diplom\Storage\bin\Debug\EntityLibrary.dll
+D:\Мои документы\ВКР\Diplom\Storage\bin\Debug\EntityLibrary.pdb
+D:\Мои документы\ВКР\Diplom\Storage\obj\Debug\Logic.csprojAssemblyReference.cache
+D:\Мои документы\ВКР\Diplom\Storage\obj\Debug\Logic.csproj.CoreCompileInputs.cache
+D:\Мои документы\ВКР\Diplom\Storage\obj\Debug\Logic.csproj.CopyComplete
+D:\Мои документы\ВКР\Diplom\Storage\obj\Debug\Storage.dll
+D:\Мои документы\ВКР\Diplom\Storage\obj\Debug\Storage.pdb

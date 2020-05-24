@@ -1,0 +1,6 @@
+D:\Мои документы\ВКР\Diplom\EntityLibrary\bin\Debug\EntityLibrary.dll
+D:\Мои документы\ВКР\Diplom\EntityLibrary\bin\Debug\EntityLibrary.pdb
+D:\Мои документы\ВКР\Diplom\EntityLibrary\obj\Debug\EntityLibrary.csproj.CoreCompileInputs.cache
+D:\Мои документы\ВКР\Diplom\EntityLibrary\obj\Debug\EntityLibrary.dll
+D:\Мои документы\ВКР\Diplom\EntityLibrary\obj\Debug\EntityLibrary.pdb
+D:\Мои документы\ВКР\Diplom\EntityLibrary\obj\Debug\EntityLibrary.csprojAssemblyReference.cache
