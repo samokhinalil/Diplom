@@ -64,6 +64,8 @@
     <Compile Include="IssueType.cs" />
     <Compile Include="StateEmployeeTasksCountReport.cs" />
     <Compile Include="SubIssueView.cs" />
+    <Compile Include="TimeOutTasksCountReport.cs" />
+    <Compile Include="TimeOutTasksInfoReport.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,46 @@
+﻿using Microsoft.Reporting.WinForms;
+using Storage;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Diplom
+{
+    public partial class TimeOutTasksReportForm : Form
+    {
+        public TimeOutTasksReportForm()
+        {
+            InitializeComponent();
+        }
+
+        private void TimeOutTasksReportForm_Load(object sender, EventArgs e)
+        {
+            //this.reportViewer2.RefreshReport();
+        }
+
+        private void BtnGenerateReport_Click(object sender, EventArgs e)
+        {
+            var myData = ReportDao.GetTimeOutTasksCountReport(
+                ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
+
+            reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("ITTasksDataSet", myData));
+
+            reportViewer1.RefreshReport();
+
+            var myData2 = ReportDao.GetTimeOutTasksInfoReport(
+                ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
+
+            reportViewer2.LocalReport.DataSources.Add(
+                new ReportDataSource("ITTasksDataSet", myData2));
+
+            reportViewer2.RefreshReport();
+        }
+    }
+}

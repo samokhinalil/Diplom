@@ -117,7 +117,12 @@ namespace Diplom
             //SolvedTasksComplexityCountReportForm reportForm =
             //    new SolvedTasksComplexityCountReportForm();
             //reportForm.ShowDialog();
-            StateEmployeeTasksCountReportForm form = new StateEmployeeTasksCountReportForm();
+
+
+            //StateEmployeeTasksCountReportForm form = new StateEmployeeTasksCountReportForm();
+            //form.ShowDialog();
+
+            TimeOutTasksReportForm form = new TimeOutTasksReportForm();
             form.ShowDialog();
 
         }

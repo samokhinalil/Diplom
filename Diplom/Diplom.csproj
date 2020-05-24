@@ -214,6 +214,12 @@
     <Compile Include="TeamForm.Designer.cs">
       <DependentUpon>TeamForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TimeOutTasksReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TimeOutTasksReportForm.Designer.cs">
+      <DependentUpon>TimeOutTasksReportForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AccessForm.resx">
       <DependentUpon>AccessForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -264,6 +270,8 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="SimpleReportForm.resx">
       <DependentUpon>SimpleReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TeamForm.resx">
       <DependentUpon>TeamForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TimeOutTasksReportForm.resx">
+      <DependentUpon>TimeOutTasksReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ITTasksDataSet.xsc">
       <DependentUpon>ITTasksDataSet.xsd</DependentUpon>
