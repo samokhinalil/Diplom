@@ -172,6 +172,12 @@
       <DependentUpon>SolvedTasksComplexityCountReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StateEmployeeTasksCountReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StateEmployeeTasksCountReportForm.Designer.cs">
+      <DependentUpon>StateEmployeeTasksCountReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StateListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,11 +263,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="SimpleReportForm.resx">
       <DependentUpon>SimpleReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SolvedTasksComplexityCountReportForm.resx">
       <DependentUpon>SolvedTasksComplexityCountReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StateEmployeeTasksCountReportForm.resx">
+      <DependentUpon>StateEmployeeTasksCountReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StateListForm.resx">
       <DependentUpon>StateListForm.cs</DependentUpon>
@@ -294,7 +304,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ITTasksDataSet.datasource" />
-    <None Include="Properties\DataSources\ReportPriorityCount_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

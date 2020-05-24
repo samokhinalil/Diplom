@@ -98,3 +98,4 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csproj.CopyCo
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.exe
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.pdb
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csprojAssemblyReference.cache
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.StateEmployeeTasksCountReportForm.resources

@@ -62,6 +62,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IssueState.cs" />
     <Compile Include="IssueType.cs" />
+    <Compile Include="StateEmployeeTasksCountReport.cs" />
     <Compile Include="SubIssueView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
