@@ -114,7 +114,8 @@ namespace Diplom
 
         private void BtnReports_Click(object sender, EventArgs e)
         {
-            SimpleReportForm reportForm = new SimpleReportForm();
+            SolvedTasksComplexityCountReportForm reportForm =
+                new SolvedTasksComplexityCountReportForm();
             reportForm.ShowDialog();
 
         }

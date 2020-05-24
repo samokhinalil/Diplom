@@ -128,6 +128,11 @@
     <Compile Include="IssueHistoryForm.Designer.cs">
       <DependentUpon>IssueHistoryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ITTasksDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ITTasksDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +164,12 @@
     </Compile>
     <Compile Include="SimpleReportForm.Designer.cs">
       <DependentUpon>SimpleReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SolvedTasksComplexityCountReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolvedTasksComplexityCountReportForm.Designer.cs">
+      <DependentUpon>SolvedTasksComplexityCountReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="StateListForm.cs">
@@ -245,8 +256,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="SimpleReportForm.resx">
       <DependentUpon>SimpleReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolvedTasksComplexityCountReportForm.resx">
+      <DependentUpon>SolvedTasksComplexityCountReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StateListForm.resx">
       <DependentUpon>StateListForm.cs</DependentUpon>
@@ -266,7 +281,19 @@
     <EmbeddedResource Include="TeamForm.resx">
       <DependentUpon>TeamForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ITTasksDataSet.xsc">
+      <DependentUpon>ITTasksDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ITTasksDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ITTasksDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ITTasksDataSet.xss">
+      <DependentUpon>ITTasksDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\ITTasksDataSet.datasource" />
     <None Include="Properties\DataSources\ReportPriorityCount_Result.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

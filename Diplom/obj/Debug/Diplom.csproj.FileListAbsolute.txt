@@ -76,12 +76,14 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.EmployeeForm.
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.EmployeeListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.EmployeeMenuForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.EnterForm.resources
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.IssueHistoryForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.MainForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.PositionListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ProjectForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ProjectListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.Properties.Resources.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.SimpleReportForm.resources
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.SolvedTasksComplexityCountReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.StateListForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TaskForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TaskIssuingForm.resources
@@ -89,9 +91,10 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TaskListForm.
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TaskSettingsForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TeamForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csproj.GenerateResource.cache
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\RdlCompile.cache
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\RdlCompile.compiled
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csproj.CoreCompileInputs.cache
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csproj.CopyComplete
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.exe
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.pdb
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.csprojAssemblyReference.cache
-D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.IssueHistoryForm.resources
