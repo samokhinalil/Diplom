@@ -34,12 +34,13 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnChooseBackUpDirectory = new System.Windows.Forms.Button();
             this.btnChooseRestoreFile = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.tbFilePath = new System.Windows.Forms.TextBox();
+            this.tbBackUpFileName = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +93,7 @@
             this.btnChooseBackUpDirectory.TabIndex = 4;
             this.btnChooseBackUpDirectory.Text = "...";
             this.btnChooseBackUpDirectory.UseVisualStyleBackColor = true;
+            this.btnChooseBackUpDirectory.Click += new System.EventHandler(this.BtnChooseBackUpDirectory_Click);
             // 
             // btnChooseRestoreFile
             // 
@@ -102,19 +104,19 @@
             this.btnChooseRestoreFile.Text = "...";
             this.btnChooseRestoreFile.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbFilePath
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(277, 24);
-            this.textBox1.TabIndex = 6;
+            this.tbFilePath.Location = new System.Drawing.Point(71, 36);
+            this.tbFilePath.Name = "tbFilePath";
+            this.tbFilePath.Size = new System.Drawing.Size(277, 24);
+            this.tbFilePath.TabIndex = 6;
             // 
-            // textBox2
+            // tbBackUpFileName
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 46);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(277, 24);
-            this.textBox2.TabIndex = 7;
+            this.tbBackUpFileName.Location = new System.Drawing.Point(71, 46);
+            this.tbBackUpFileName.Name = "tbBackUpFileName";
+            this.tbBackUpFileName.Size = new System.Drawing.Size(277, 24);
+            this.tbBackUpFileName.TabIndex = 7;
             // 
             // openFileDialog1
             // 
@@ -122,7 +124,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbFilePath);
             this.groupBox1.Controls.Add(this.btnChooseBackUpDirectory);
             this.groupBox1.Controls.Add(this.btnCreateBackUp);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -134,7 +136,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.tbBackUpFileName);
             this.groupBox2.Controls.Add(this.btnChooseRestoreFile);
             this.groupBox2.Controls.Add(this.btnRestoreDB);
             this.groupBox2.Location = new System.Drawing.Point(0, 150);
@@ -154,7 +156,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BackUpForm";
             this.Text = "Резервное копирование";
             this.groupBox1.ResumeLayout(false);
@@ -173,11 +175,12 @@
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnChooseBackUpDirectory;
         private System.Windows.Forms.Button btnChooseRestoreFile;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox tbFilePath;
+        private System.Windows.Forms.TextBox tbBackUpFileName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
     }
 }
