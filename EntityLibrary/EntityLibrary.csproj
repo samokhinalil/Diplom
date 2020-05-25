@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Access.cs" />
     <Compile Include="ActiveEmployeeIssue.cs" />
+    <Compile Include="AppropriateEmployee.cs" />
     <Compile Include="Complexity.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Employee.cs" />
@@ -53,7 +54,6 @@
     <Compile Include="Position.cs" />
     <Compile Include="Priority.cs" />
     <Compile Include="Project.cs" />
-    <Compile Include="ReportSimpleEntity.cs" />
     <Compile Include="Role.cs" />
     <Compile Include="SHA1Hasher.cs" />
     <Compile Include="SolvedTasksComplexityReport.cs" />

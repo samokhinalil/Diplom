@@ -121,6 +121,12 @@
     <Compile Include="EmployeeMenuForm.Designer.cs">
       <DependentUpon>EmployeeMenuForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EmployeeSelectionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EmployeeSelectionForm.Designer.cs">
+      <DependentUpon>EmployeeSelectionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EnterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EmployeeMenuForm.resx">
       <DependentUpon>EmployeeMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EmployeeSelectionForm.resx">
+      <DependentUpon>EmployeeSelectionForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EnterForm.resx">
       <DependentUpon>EnterForm.cs</DependentUpon>

@@ -101,8 +101,15 @@ namespace Diplom
 
         private void BtnSelectEmployee_Click(object sender, EventArgs e)
         {
-            Form employeeListForm = new EmployeeListForm(_access);
-            employeeListForm.Show();
+            int projectId = ((Project)cbProject.SelectedItem).ID;
+            EmployeeSelectionForm employeeSelectionForm =
+                new EmployeeSelectionForm(projectId);
+            employeeSelectionForm.ShowDialog();
+
+            if(employeeSelectionForm.DialogResult == DialogResult.OK)
+            {
+                cbEmployee.SelectedValue = employeeSelectionForm.EmployeeID;
+            }
         }
 
         private void CbTask_SelectedValueChanged(object sender, EventArgs e)

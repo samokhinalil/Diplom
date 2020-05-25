@@ -19,7 +19,7 @@ namespace EntityLibrary
             EmployeeFullName = employeeFullName;
             RequiredDate = requiredDate;
             CurrentState = currentState;
-            DateTimeStateDate = dateTimeStateDate;
+            StateDate = dateTimeStateDate;
             DateDifference = dateDifference;
         }
 
@@ -27,7 +27,7 @@ namespace EntityLibrary
         public string EmployeeFullName { get; set; }
         public DateTime RequiredDate { get; set; }
         public string CurrentState { get; set; }
-        public DateTime DateTimeStateDate { get; set; }
+        public DateTime StateDate { get; set; }
         public int DateDifference { get; set; }
 }
 }

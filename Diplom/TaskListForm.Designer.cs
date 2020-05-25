@@ -78,6 +78,7 @@
             this.dgvTasks.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTasks.MultiSelect = false;
             this.dgvTasks.Name = "dgvTasks";
+            this.dgvTasks.ReadOnly = true;
             this.dgvTasks.RowHeadersVisible = false;
             this.dgvTasks.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTasks.Size = new System.Drawing.Size(723, 280);
@@ -91,36 +92,42 @@
             this.ID.FillWeight = 50F;
             this.ID.HeaderText = "ID";
             this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
             // 
             // IssueName
             // 
             this.IssueName.DataPropertyName = "IssueName";
             this.IssueName.HeaderText = "Название задачи";
             this.IssueName.Name = "IssueName";
+            this.IssueName.ReadOnly = true;
             // 
             // PriorityName
             // 
             this.PriorityName.DataPropertyName = "PriorityName";
             this.PriorityName.HeaderText = "Приоритет";
             this.PriorityName.Name = "PriorityName";
+            this.PriorityName.ReadOnly = true;
             // 
             // ComplexityName
             // 
             this.ComplexityName.DataPropertyName = "ComplexityName";
             this.ComplexityName.HeaderText = "Уровень сложности";
             this.ComplexityName.Name = "ComplexityName";
+            this.ComplexityName.ReadOnly = true;
             // 
             // TypeName
             // 
             this.TypeName.DataPropertyName = "TypeName";
             this.TypeName.HeaderText = "Тип";
             this.TypeName.Name = "TypeName";
+            this.TypeName.ReadOnly = true;
             // 
             // CurrentStateName
             // 
             this.CurrentStateName.DataPropertyName = "CurrentStateName";
             this.CurrentStateName.HeaderText = "Текущий статус";
             this.CurrentStateName.Name = "CurrentStateName";
+            this.CurrentStateName.ReadOnly = true;
             // 
             // laProject
             // 

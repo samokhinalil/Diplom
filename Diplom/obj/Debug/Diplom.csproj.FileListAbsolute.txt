@@ -101,3 +101,4 @@ D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.StateEmployee
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.TimeOutTasksReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.DetailTimeOutReportForm.resources
 D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.ReportForm.resources
+D:\Мои документы\ВКР\Diplom\Diplom\obj\Debug\Diplom.EmployeeSelectionForm.resources

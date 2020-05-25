@@ -61,7 +61,6 @@ namespace Diplom
             InitPriorityComboBox(0);
             InitComplexityComboBox(0);
 
-
         }
 
         private void UpdateDgvTasks(int employeeId, int projectId, int selector)
@@ -71,16 +70,18 @@ namespace Diplom
             dgvTasks.DataSource = null;
             if (_access.Role.RoleName.Equals(devRoleName))
             {
-                if(selector == 1)//открытые задачи
+                if (selector == 1)//открытые задачи
                 {
                     dgvTasks.DataSource = IssueDao.GetEmployeeOpenIssues(employeeId, projectId);
+                    
+
                 }
                 else if (selector == 2)//выполненные задачи
                 {
                     dgvTasks.DataSource = IssueDao.GetEmployeeExecutedIssues(employeeId, projectId);
                 }
-                
-                if(dgvTasks.DataSource == null)
+
+                if (dgvTasks.DataSource == null)
                 {
                     MessageBox.Show("Задач нет");
                 }
@@ -106,7 +107,7 @@ namespace Diplom
             cbEmployee.Items.Add(EmployeeDao.GetByID(employeeId));
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
-            if(cbEmployee.Items != null)
+            if (cbEmployee.Items != null)
             {
                 cbEmployee.SelectedIndex = 0;
             }
@@ -118,7 +119,7 @@ namespace Diplom
             cbEmployee.DataSource = TeamDao.GetProjectTeam(projectId);
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
-            if(cbEmployee.DataSource != null)
+            if (cbEmployee.DataSource != null)
             {
                 cbEmployee.SelectedValue = 0;
             }
@@ -155,7 +156,7 @@ namespace Diplom
         {
             TaskForm taskForm = new TaskForm(_access);
             taskForm.ShowDialog();
-            if(taskForm.DialogResult == DialogResult.OK)
+            if (taskForm.DialogResult == DialogResult.OK)
             {
                 int issueID = IssueDao.Add(taskForm.IssueName,
                              taskForm.Priority.ID,
@@ -171,7 +172,15 @@ namespace Diplom
                     IssueDao.InsertIssueSubIssues(issueID, taskForm.SubIssues);
                 }
 
-                UpdateDgvTasks(((Project)cbProject.SelectedItem).ID);
+                int projectId = ((Project)cbProject.SelectedItem).ID;
+                if (_access.Role.RoleName.Equals("Разработчик"))
+                {
+                    UpdateDgvTasks(_access.Employee.ID, projectId, taskSelector);
+                }
+                else
+                {
+                    UpdateDgvTasks(projectId);
+                }
 
                 //update filter if it exists
                 dgvTasks.CurrentCell = null;
@@ -184,7 +193,7 @@ namespace Diplom
 
         private void BtnEditTask_Click(object sender, EventArgs e)
         {
-            if(dgvTasks.CurrentCell != null)
+            if (dgvTasks.CurrentCell != null)
             {
                 int issueID = ((IssueListView)dgvTasks.CurrentRow.DataBoundItem).ID;
                 IssueView issueView = IssueDao.GetByID(issueID);
@@ -206,7 +215,16 @@ namespace Diplom
                         //edit subtasks
                         IssueDao.InsertIssueSubIssues(taskForm.ID, taskForm.SubIssues);
                     }
-                    UpdateDgvTasks(((Project)cbProject.SelectedItem).ID);
+
+                    int projectId = ((Project)cbProject.SelectedItem).ID;
+                    if (_access.Role.RoleName.Equals("Разработчик"))
+                    {
+                        UpdateDgvTasks(_access.Employee.ID, projectId, taskSelector);
+                    }
+                    else
+                    {
+                        UpdateDgvTasks(projectId);
+                    }
                 }
             }
             else
@@ -250,7 +268,7 @@ namespace Diplom
             cbProject.DataSource = ProjectDao.GetEmployeeProjects(employeeId);
             cbProject.DisplayMember = "ProjectName";
             cbProject.ValueMember = "ID";
-            if(cbProject.DataSource != null)
+            if (cbProject.DataSource != null)
             {
                 cbProject.SelectedValue = 1;
             }
@@ -328,7 +346,7 @@ namespace Diplom
 
         private void BtnChangeState_Click(object sender, EventArgs e)
         {
-            if(dgvTasks.CurrentCell != null)
+            if (dgvTasks.CurrentCell != null)
             {
                 int id = ((IssueListView)dgvTasks.SelectedRows[0].DataBoundItem).ID;
                 StateListForm stateListForm = new StateListForm();
@@ -338,12 +356,21 @@ namespace Diplom
                     if (id != 0)
                     {
                         IssueDao.ChangeIssueState(
-                            id, 
+                            id,
                             stateListForm.State.ID,
                             _access.Employee.ID);
                         MessageBox.Show("Статус задачи изменен.", "Информационное сообщение",
                             MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                        UpdateDgvTasks(((Project)cbProject.SelectedItem).ID);
+
+                        int projectId = ((Project)cbProject.SelectedItem).ID;
+                        if (_access.Role.RoleName.Equals("Разработчик"))
+                        {
+                            UpdateDgvTasks(_access.Employee.ID, projectId, taskSelector);
+                        }
+                        else
+                        {
+                            UpdateDgvTasks(projectId);
+                        }
                     }
                 }
             }
@@ -363,18 +390,18 @@ namespace Diplom
 
         private void CbEmployee_SelectedValueChanged(object sender, EventArgs e)
         {
-            if(cbProject.SelectedItem != null)
+            if (cbProject.SelectedItem != null)
             {
                 int projectId = ((Project)cbProject.SelectedItem).ID;
 
-                if(cbEmployee.SelectedItem != null)
+                if (cbEmployee.SelectedItem != null)
                 {
                     int employeeId = ((Employee)cbEmployee.SelectedItem).ID;
-                    if(taskSelector == 1)
+                    if (taskSelector == 1)
                     {
                         UpdateDgvTasks(employeeId, projectId, 1);
                     }
-                    else if(taskSelector == 2)
+                    else if (taskSelector == 2)
                     {
                         UpdateDgvTasks(employeeId, projectId, 2);
                     }
@@ -382,7 +409,7 @@ namespace Diplom
                     {
                         UpdateDgvEmployeeTasks(employeeId, projectId);
                     }
-                    
+
                 }
                 else
                 {
@@ -404,7 +431,7 @@ namespace Diplom
 
         private void BtnCloseTask_Click(object sender, EventArgs e)
         {
-            if(dgvTasks.CurrentCell != null)
+            if (dgvTasks.CurrentCell != null)
             {
                 IssueListView issue = (IssueListView)dgvTasks.CurrentRow.DataBoundItem;
                 IssueDao.CloseExecutedIssue(_access.Employee.ID, issue.ID);

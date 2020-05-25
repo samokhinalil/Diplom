@@ -38,7 +38,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.ctlExit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGetIssuesStates = new System.Windows.Forms.Button();
-            this.btnGenerateReports = new System.Windows.Forms.Button();
             this.btnMyTeam = new System.Windows.Forms.Button();
             this.laAccess = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -48,7 +47,7 @@
             // 
             this.btnOpenTasks.Location = new System.Drawing.Point(0, 29);
             this.btnOpenTasks.Name = "btnOpenTasks";
-            this.btnOpenTasks.Size = new System.Drawing.Size(300, 44);
+            this.btnOpenTasks.Size = new System.Drawing.Size(357, 44);
             this.btnOpenTasks.TabIndex = 0;
             this.btnOpenTasks.Text = "Открытые задачи";
             this.btnOpenTasks.UseVisualStyleBackColor = true;
@@ -58,7 +57,7 @@
             // 
             this.btnDoneTasks.Location = new System.Drawing.Point(0, 79);
             this.btnDoneTasks.Name = "btnDoneTasks";
-            this.btnDoneTasks.Size = new System.Drawing.Size(300, 48);
+            this.btnDoneTasks.Size = new System.Drawing.Size(357, 48);
             this.btnDoneTasks.TabIndex = 1;
             this.btnDoneTasks.Text = "Выполненные задачи";
             this.btnDoneTasks.UseVisualStyleBackColor = true;
@@ -70,7 +69,7 @@
             this.ctlFile});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(300, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(357, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -122,26 +121,17 @@
             // 
             this.btnGetIssuesStates.Location = new System.Drawing.Point(0, 133);
             this.btnGetIssuesStates.Name = "btnGetIssuesStates";
-            this.btnGetIssuesStates.Size = new System.Drawing.Size(300, 44);
+            this.btnGetIssuesStates.Size = new System.Drawing.Size(357, 44);
             this.btnGetIssuesStates.TabIndex = 3;
             this.btnGetIssuesStates.Text = "История выполнения задач";
             this.btnGetIssuesStates.UseVisualStyleBackColor = true;
             this.btnGetIssuesStates.Click += new System.EventHandler(this.BtnGetIssuesStates_Click);
             // 
-            // btnGenerateReports
-            // 
-            this.btnGenerateReports.Location = new System.Drawing.Point(0, 183);
-            this.btnGenerateReports.Name = "btnGenerateReports";
-            this.btnGenerateReports.Size = new System.Drawing.Size(300, 44);
-            this.btnGenerateReports.TabIndex = 4;
-            this.btnGenerateReports.Text = "Формирование отчетов";
-            this.btnGenerateReports.UseVisualStyleBackColor = true;
-            // 
             // btnMyTeam
             // 
-            this.btnMyTeam.Location = new System.Drawing.Point(0, 233);
+            this.btnMyTeam.Location = new System.Drawing.Point(0, 183);
             this.btnMyTeam.Name = "btnMyTeam";
-            this.btnMyTeam.Size = new System.Drawing.Size(300, 42);
+            this.btnMyTeam.Size = new System.Drawing.Size(357, 42);
             this.btnMyTeam.TabIndex = 5;
             this.btnMyTeam.Text = "Моя команда";
             this.btnMyTeam.UseVisualStyleBackColor = true;
@@ -150,7 +140,7 @@
             // laAccess
             // 
             this.laAccess.AutoSize = true;
-            this.laAccess.Location = new System.Drawing.Point(12, 280);
+            this.laAccess.Location = new System.Drawing.Point(12, 241);
             this.laAccess.Name = "laAccess";
             this.laAccess.Size = new System.Drawing.Size(56, 18);
             this.laAccess.TabIndex = 9;
@@ -160,10 +150,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 307);
+            this.ClientSize = new System.Drawing.Size(357, 262);
             this.Controls.Add(this.laAccess);
             this.Controls.Add(this.btnMyTeam);
-            this.Controls.Add(this.btnGenerateReports);
             this.Controls.Add(this.btnGetIssuesStates);
             this.Controls.Add(this.btnDoneTasks);
             this.Controls.Add(this.btnOpenTasks);
@@ -195,7 +184,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ctlExit;
         private System.Windows.Forms.Button btnGetIssuesStates;
-        private System.Windows.Forms.Button btnGenerateReports;
         private System.Windows.Forms.Button btnMyTeam;
         private System.Windows.Forms.Label laAccess;
     }
