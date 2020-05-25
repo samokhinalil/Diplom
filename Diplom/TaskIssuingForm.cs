@@ -62,15 +62,21 @@ namespace Diplom
         private void UpdateComboBoxTasks(int projectId, int selectedTaskId)
         {
             cbTask.DataSource = null;
-            cbTask.DataSource = IssueDao.GetProjectIssues(projectId);
+            cbTask.DataSource = IssueDao.GetProjectOpenIssues(projectId);
             cbTask.DisplayMember = "IssueName";
             cbTask.ValueMember = "ID";
-            if (cbTask.DataSource != null)
+            if (cbTask.Items.Count != 0)
             {
                 cbTask.SelectedValue = selectedTaskId;
 
                 UpdatePriorityAndComplexityText();
-
+            }
+            else
+            {
+                cbEmployee.Enabled = false;
+                ctlEndDate.Enabled = false;
+                btnCalculateDate.Enabled = false;
+                btnSelectEmployee.Enabled = false;
             }
         }
 

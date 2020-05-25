@@ -36,7 +36,6 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.ctlFile = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlChangeUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctlGrantAccessRights = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlCheckConnection = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlTaskSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlShowPositions = new System.Windows.Forms.ToolStripMenuItem();
@@ -119,7 +118,6 @@
             // 
             this.ctlFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctlChangeUser,
-            this.ctlGrantAccessRights,
             this.ctlCheckConnection,
             this.ctlTaskSettings,
             this.ctlShowPositions,
@@ -135,13 +133,6 @@
             this.ctlChangeUser.Size = new System.Drawing.Size(228, 22);
             this.ctlChangeUser.Text = "Сменить пользователя";
             this.ctlChangeUser.Click += new System.EventHandler(this.CtlChangeUser_Click);
-            // 
-            // ctlGrantAccessRights
-            // 
-            this.ctlGrantAccessRights.Name = "ctlGrantAccessRights";
-            this.ctlGrantAccessRights.Size = new System.Drawing.Size(228, 22);
-            this.ctlGrantAccessRights.Text = "Выдать права доступа";
-            this.ctlGrantAccessRights.Click += new System.EventHandler(this.CtlGrantAccessRights_Click);
             // 
             // ctlCheckConnection
             // 
@@ -228,7 +219,6 @@
         private System.Windows.Forms.ToolStripMenuItem ctlExit;
         private System.Windows.Forms.ToolStripMenuItem ctlTaskSettings;
         private System.Windows.Forms.ToolStripMenuItem ctlShowPositions;
-        private System.Windows.Forms.ToolStripMenuItem ctlGrantAccessRights;
         private System.Windows.Forms.Label laAccess;
     }
 }

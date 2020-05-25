@@ -268,6 +268,37 @@ namespace Storage
             return issuesView;
         }
 
+        public static List<IssueListView> GetProjectOpenIssues(int projectId)
+        {
+            List<IssueListView> issuesView = new List<IssueListView>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "GetProjectOpenTasks";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@projectId", projectId);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                            while (reader.Read())
+                            {
+                                issuesView.Add(new IssueListView(
+                                    int.Parse(reader["Задача"].ToString()),
+                                    reader["НазваниеЗадачи"].ToString(),
+                                    reader["НазваниеПриоритета"].ToString(),
+                                    reader["НазваниеУровняСложности"].ToString(),
+                                    reader["НазваниеТипаЗадачи"].ToString(),
+                                    reader["НазваниеСтатуса"].ToString()));
+                            }
+                    }
+                }
+            }
+            return issuesView;
+        }
+
         public static List<IssueListView> GetEmployeeExecutedIssues(int employeeId, int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();

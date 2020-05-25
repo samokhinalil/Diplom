@@ -20,9 +20,10 @@ namespace Storage
         public List<AppropriateEmployee> GetEmployeesWithCoefficient()
         {
             Random r = new Random();
-            double coefficient = r.NextDouble();
+            double coefficient = 0;
             foreach (var employee in employeeList)
             {
+                coefficient = r.NextDouble();
                 result.Add(new AppropriateEmployee(employee, coefficient));
             }
             return result;
