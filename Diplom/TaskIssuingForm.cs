@@ -138,10 +138,19 @@ namespace Diplom
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            IssueDao.AppointIssueToEmployee(((IssueListView)cbTask.SelectedItem).ID,
+            if(cbTask.Items.Count != 0 && cbEmployee.SelectedItem != null)
+            {
+                IssueDao.AppointIssueToEmployee(((IssueListView)cbTask.SelectedItem).ID,
                 ((Employee)cbEmployee.SelectedItem).ID, _access.Employee.ID,
                 ctlEndDate.Value);
-            DialogResult = DialogResult.OK;
+
+                DialogResult = DialogResult.OK;
+            }
+            else
+            {
+                MessageBox.Show("Поля не заполнены!", "Предупреждение",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
         }
 
         private void BtnCalculateDate_Click(object sender, EventArgs e)

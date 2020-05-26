@@ -21,7 +21,6 @@ namespace Diplom
 
         private void SolvedTasksComplexityCountReportForm_Load(object sender, EventArgs e)
         {
-            //this.reportViewer1.RefreshReport();
         }
 
         private void BtnGenerateReport_Click(object sender, EventArgs e)
@@ -29,6 +28,7 @@ namespace Diplom
             var myData = ReportDao.GetSolvedTasksComplexityCountReportReport(
                 ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
+            reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("ITTasksDataSet", myData));
             ReportParameter[] rparams = new ReportParameter[]

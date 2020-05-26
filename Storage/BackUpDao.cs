@@ -27,5 +27,10 @@ namespace Storage
                 }
             }
         }
+
+        public static void RestoreDataBase(string fileName)
+        {
+
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace Diplom
 
         private void BtnRestoreDB_Click(object sender, EventArgs e)
         {
-            //BackupDAO.RestoreDatabase("Rent", txtRestoreFilePath.Text);
+            BackUpDao.RestoreDataBase(tbBackUpFileName.Text);
         }
 
         private void BtnChooseBackUpDirectory_Click(object sender, EventArgs e)
@@ -52,6 +52,14 @@ namespace Diplom
                 {
                     tbFilePath.Text = dialog.SelectedPath.ToString();
                 }
+            }
+        }
+
+        private void BtnChooseRestoreFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                tbBackUpFileName.Text = openFileDialog1.FileName.ToString();
             }
         }
     }

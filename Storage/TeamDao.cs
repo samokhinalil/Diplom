@@ -29,6 +29,24 @@ namespace Storage
             }
         }
 
+        public static void DeleteEmployeeFromProject(int projectId, int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "DeleteEmployeeFromProjectTeam";
+
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@projectId", projectId);
+                    command.Parameters.AddWithValue("@employeeId", employeeId);
+
+                    connection.Open();
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         public static List<Employee> GetProjectTeam(int projectId)
         {
             List<Employee> employees = new List<Employee>();

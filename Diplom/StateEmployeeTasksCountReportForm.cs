@@ -33,12 +33,33 @@ namespace Diplom
                 var myData = ReportDao.GetStateEmployeeTasksCountReport(employeeId,
                     ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
+                reportViewer1.LocalReport.DataSources.Clear();
                 reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("ITTasksDataSet", myData));
 
                 ReportParameter[] rparams = new ReportParameter[]
                 {
                     new ReportParameter("employee", ((Employee)cbEmployee.SelectedItem).FullName),
+                    new ReportParameter("dateFrom", ctlDateFrom.Value.Date.ToShortDateString()),
+                    new ReportParameter("dateTo", ctlDateTo.Value.Date.ToShortDateString())
+                };
+
+                reportViewer1.LocalReport.SetParameters(rparams);
+
+                reportViewer1.RefreshReport();
+            }
+            else
+            {
+                var myData = ReportDao.GetStateTasksCountReport(
+                    ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
+
+                reportViewer1.LocalReport.DataSources.Clear();
+                reportViewer1.LocalReport.DataSources.Add(
+                new ReportDataSource("ITTasksDataSet", myData));
+
+                ReportParameter[] rparams = new ReportParameter[]
+                {
+                    new ReportParameter("employee", "Для всех сотрудников"),
                     new ReportParameter("dateFrom", ctlDateFrom.Value.Date.ToShortDateString()),
                     new ReportParameter("dateTo", ctlDateTo.Value.Date.ToShortDateString())
                 };

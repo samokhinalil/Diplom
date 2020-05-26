@@ -32,7 +32,6 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.btnPrint = new System.Windows.Forms.Button();
             this.btnBackToMainForm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.gbProjectSearch = new System.Windows.Forms.GroupBox();
@@ -84,15 +83,6 @@
             this.printDialog1.Document = this.printDocument1;
             this.printDialog1.ShowHelp = true;
             this.printDialog1.UseEXDialog = true;
-            // 
-            // btnPrint
-            // 
-            this.btnPrint.Location = new System.Drawing.Point(593, 143);
-            this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(129, 28);
-            this.btnPrint.TabIndex = 15;
-            this.btnPrint.Text = "Печать";
-            this.btnPrint.UseVisualStyleBackColor = true;
             // 
             // btnBackToMainForm
             // 
@@ -279,7 +269,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(725, 324);
-            this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnBackToMainForm);
             this.Controls.Add(this.gbProjectSearch);
             this.Controls.Add(this.btnEditProject);
@@ -305,7 +294,6 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnBackToMainForm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbProjectSearch;

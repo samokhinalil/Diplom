@@ -24,6 +24,7 @@ namespace Diplom
             var myData = ReportDao.GetTimeOutTasksInfoReport(
                 ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
+            reportViewer2.LocalReport.DataSources.Clear();
             reportViewer2.LocalReport.DataSources.Add(
                 new ReportDataSource("ITTasksDataSet", myData));
 

@@ -286,7 +286,7 @@ namespace Storage
                             while (reader.Read())
                             {
                                 issuesView.Add(new IssueListView(
-                                    int.Parse(reader["Задача"].ToString()),
+                                    int.Parse(reader["ID_задачи"].ToString()),
                                     reader["НазваниеЗадачи"].ToString(),
                                     reader["НазваниеПриоритета"].ToString(),
                                     reader["НазваниеУровняСложности"].ToString(),

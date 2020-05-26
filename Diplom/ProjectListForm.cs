@@ -57,8 +57,10 @@ namespace Diplom
 
         private void BtnEditTeam_Click(object sender, EventArgs e)
         {
-            TeamForm teamForm = new TeamForm();
-            teamForm.Show();
+            Project project = (Project)dgvProjects.SelectedRows[0].DataBoundItem;
+
+            TeamForm teamForm = new TeamForm(project);
+            teamForm.ShowDialog();
         }
 
         private void BtnOK_Click(object sender, EventArgs e)

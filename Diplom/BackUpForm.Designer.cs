@@ -37,7 +37,6 @@
             this.tbFilePath = new System.Windows.Forms.TextBox();
             this.tbBackUpFileName = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -103,6 +102,7 @@
             this.btnChooseRestoreFile.TabIndex = 5;
             this.btnChooseRestoreFile.Text = "...";
             this.btnChooseRestoreFile.UseVisualStyleBackColor = true;
+            this.btnChooseRestoreFile.Click += new System.EventHandler(this.BtnChooseRestoreFile_Click);
             // 
             // tbFilePath
             // 
@@ -158,6 +158,7 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BackUpForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Резервное копирование";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -178,7 +179,6 @@
         private System.Windows.Forms.TextBox tbFilePath;
         private System.Windows.Forms.TextBox tbBackUpFileName;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
