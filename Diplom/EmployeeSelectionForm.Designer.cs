@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coeeficient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coefficient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             this.ID,
             this.FullName,
             this.Position,
-            this.Coeeficient});
+            this.Coefficient});
             this.dgvEmployees.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvEmployees.Location = new System.Drawing.Point(2, 3);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(4);
@@ -103,11 +104,13 @@
             this.Position.HeaderText = "Должность";
             this.Position.Name = "Position";
             // 
-            // Coeeficient
+            // Coefficient
             // 
-            this.Coeeficient.DataPropertyName = "Coefficient";
-            this.Coeeficient.HeaderText = "Коэффициент";
-            this.Coeeficient.Name = "Coeeficient";
+            this.Coefficient.DataPropertyName = "Coefficient";
+            dataGridViewCellStyle1.Format = "0.000";
+            this.Coefficient.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Coefficient.HeaderText = "Коэффициент";
+            this.Coefficient.Name = "Coefficient";
             // 
             // EmployeeSelectionForm
             // 
@@ -118,7 +121,7 @@
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.dgvEmployees);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeSelectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Подбор сотрудников";
@@ -135,6 +138,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Position;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Coeeficient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coefficient;
     }
 }

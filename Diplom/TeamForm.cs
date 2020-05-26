@@ -19,6 +19,8 @@ namespace Diplom
         public TeamForm(Project project)
         {
             InitializeComponent();
+            dgvTeamEmployees.AutoGenerateColumns = false;
+            dgvOtherEmployees.AutoGenerateColumns = false;
 
             this.project = project;
             UpdateAll();
@@ -36,23 +38,37 @@ namespace Diplom
 
         private void BtnAddEmployeeToProject_Click(object sender, EventArgs e)
         {
-            if(dgvOtherEmployees.SelectedRows.Count != 0)
+            if(dgvOtherEmployees.CurrentRow != null)
             {
-                int employeeId = ((Employee)dgvOtherEmployees.SelectedRows[0]
+                int employeeId = ((Employee)dgvOtherEmployees.CurrentRow
                     .DataBoundItem).ID;
                 TeamDao.AddEmployeeToProject(project.ID, employeeId);
                 UpdateAll();
+                MessageBox.Show("Сотрудник добавлен в команду.", "Информационное сообщение",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Строка не выбрана!", "Предупреждение",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
 
         private void BtnRemoveEmployeeFromProject_Click(object sender, EventArgs e)
         {
-            if (dgvTeamEmployees.SelectedRows.Count != 0)
+            if (dgvTeamEmployees.CurrentRow != null)
             {
-                int employeeId = ((Employee)dgvTeamEmployees.SelectedRows[0]
+                int employeeId = ((Employee)dgvTeamEmployees.CurrentRow
                     .DataBoundItem).ID;
                 TeamDao.DeleteEmployeeFromProject(project.ID, employeeId);
                 UpdateAll();
+                MessageBox.Show("Сотрудник удален из команды.", "Информационное сообщение",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Строка не выбрана!", "Предупреждение",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
         }
     }

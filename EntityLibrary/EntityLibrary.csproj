@@ -48,6 +48,7 @@
     <Compile Include="Complexity.cs" />
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="IssueDetailInfo.cs" />
     <Compile Include="IssueHistory.cs" />
     <Compile Include="IssueListView.cs" />
     <Compile Include="IssueView.cs" />

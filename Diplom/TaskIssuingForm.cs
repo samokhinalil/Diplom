@@ -138,7 +138,7 @@ namespace Diplom
 
         private void BtnOK_Click(object sender, EventArgs e)
         {
-            if(cbTask.Items.Count != 0 && cbEmployee.SelectedItem != null)
+            if(cbTask.SelectedItem != null && cbEmployee.SelectedItem != null)
             {
                 IssueDao.AppointIssueToEmployee(((IssueListView)cbTask.SelectedItem).ID,
                 ((Employee)cbEmployee.SelectedItem).ID, _access.Employee.ID,

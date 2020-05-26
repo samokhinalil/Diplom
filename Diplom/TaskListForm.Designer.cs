@@ -58,6 +58,7 @@
             this.btnEditTask = new System.Windows.Forms.Button();
             this.btnChangeState = new System.Windows.Forms.Button();
             this.btnCloseTask = new System.Windows.Forms.Button();
+            this.btnDetailInfo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTasks)).BeginInit();
             this.gbTaskFilter.SuspendLayout();
             this.SuspendLayout();
@@ -197,7 +198,7 @@
             this.btnCloseAllTasks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCloseAllTasks.Location = new System.Drawing.Point(157, 334);
             this.btnCloseAllTasks.Name = "btnCloseAllTasks";
-            this.btnCloseAllTasks.Size = new System.Drawing.Size(265, 28);
+            this.btnCloseAllTasks.Size = new System.Drawing.Size(265, 25);
             this.btnCloseAllTasks.TabIndex = 7;
             this.btnCloseAllTasks.Text = "Завершить все выполненные задачи";
             this.btnCloseAllTasks.UseVisualStyleBackColor = true;
@@ -315,7 +316,7 @@
             // btnIssueTask
             // 
             this.btnIssueTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnIssueTask.Location = new System.Drawing.Point(4, 368);
+            this.btnIssueTask.Location = new System.Drawing.Point(427, 334);
             this.btnIssueTask.Name = "btnIssueTask";
             this.btnIssueTask.Size = new System.Drawing.Size(147, 25);
             this.btnIssueTask.TabIndex = 9;
@@ -361,17 +362,28 @@
             this.btnCloseTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCloseTask.Location = new System.Drawing.Point(4, 334);
             this.btnCloseTask.Name = "btnCloseTask";
-            this.btnCloseTask.Size = new System.Drawing.Size(147, 28);
+            this.btnCloseTask.Size = new System.Drawing.Size(147, 25);
             this.btnCloseTask.TabIndex = 42;
             this.btnCloseTask.Text = "Завершить";
             this.btnCloseTask.UseVisualStyleBackColor = true;
             this.btnCloseTask.Click += new System.EventHandler(this.BtnCloseTask_Click);
+            // 
+            // btnDetailInfo
+            // 
+            this.btnDetailInfo.Location = new System.Drawing.Point(157, 368);
+            this.btnDetailInfo.Name = "btnDetailInfo";
+            this.btnDetailInfo.Size = new System.Drawing.Size(264, 25);
+            this.btnDetailInfo.TabIndex = 43;
+            this.btnDetailInfo.Text = "Подробная информация";
+            this.btnDetailInfo.UseVisualStyleBackColor = true;
+            this.btnDetailInfo.Click += new System.EventHandler(this.BtnDetailInfo_Click);
             // 
             // TaskListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 398);
+            this.Controls.Add(this.btnDetailInfo);
             this.Controls.Add(this.btnCloseTask);
             this.Controls.Add(this.btnChangeState);
             this.Controls.Add(this.btnAddTask);
@@ -431,5 +443,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CurrentStateName;
         private System.Windows.Forms.Button btnChangeState;
         private System.Windows.Forms.Button btnCloseTask;
+        private System.Windows.Forms.Button btnDetailInfo;
     }
 }

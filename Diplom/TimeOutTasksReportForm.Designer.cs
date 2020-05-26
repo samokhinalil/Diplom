@@ -83,10 +83,10 @@
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Diplom.Report3.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(128, 54);
+            this.reportViewer1.Location = new System.Drawing.Point(101, 52);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(471, 288);
+            this.reportViewer1.Size = new System.Drawing.Size(498, 341);
             this.reportViewer1.TabIndex = 16;
             // 
             // ITTasksDataSet
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 359);
+            this.ClientSize = new System.Drawing.Size(710, 398);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.ctlDateTo);

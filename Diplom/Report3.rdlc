@@ -386,8 +386,8 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>ITTasksDataSet</DataSetName>
-            <Height>6.79979cm</Height>
-            <Width>9.49854cm</Width>
+            <Height>8.01687cm</Height>
+            <Width>12.09146cm</Width>
             <Style>
               <Border>
                 <Color>LightGrey</Color>
@@ -398,10 +398,10 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>2.67708in</Height>
+        <Height>3.15625in</Height>
         <Style />
       </Body>
-      <Width>3.73958in</Width>
+      <Width>4.76042in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

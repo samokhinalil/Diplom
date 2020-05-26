@@ -146,6 +146,10 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Восстановление БД";
             // 
+            // folderBrowserDialog1
+            // 
+            this.folderBrowserDialog1.SelectedPath = "D:\\Мои документы\\ВКР\\Резервные копии";
+            // 
             // BackUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);

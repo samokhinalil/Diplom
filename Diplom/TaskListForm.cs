@@ -453,6 +453,8 @@ namespace Diplom
                 btnCloseTask.Enabled = stateName.Equals("Выполнено");
                 btnChangeState.Enabled = !stateName.Equals("Выполнено");
                 btnIssueTask.Enabled = stateName.Contains("Подготовлено");
+                btnDetailInfo.Enabled = !(stateName.Contains("Подготовлено")
+                    || stateName.Equals("Выдано"));
             }
         }
 
@@ -606,6 +608,14 @@ namespace Diplom
                 default:
                     break;
             }
+        }
+
+        private void BtnDetailInfo_Click(object sender, EventArgs e)
+        {
+            int issueId = ((IssueListView)dgvTasks.CurrentRow.DataBoundItem).ID;
+
+            IssueDetailInfoForm issueDetailInfoForm = new IssueDetailInfoForm(issueId);
+            issueDetailInfoForm.ShowDialog();
         }
     }
 }

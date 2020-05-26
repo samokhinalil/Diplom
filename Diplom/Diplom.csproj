@@ -134,6 +134,12 @@
       <DependentUpon>EnterForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FieldValidator.cs" />
+    <Compile Include="IssueDetailInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssueDetailInfoForm.Designer.cs">
+      <DependentUpon>IssueDetailInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IssueHistoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +268,9 @@
     <EmbeddedResource Include="EnterForm.resx">
       <DependentUpon>EnterForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IssueDetailInfoForm.resx">
+      <DependentUpon>IssueDetailInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IssueHistoryForm.resx">
       <DependentUpon>IssueHistoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -290,6 +299,7 @@
     <EmbeddedResource Include="Report2.rdlc" />
     <EmbeddedResource Include="Report3.rdlc" />
     <EmbeddedResource Include="Report4.rdlc" />
+    <EmbeddedResource Include="Report5.rdlc" />
     <EmbeddedResource Include="ReportForm.resx">
       <DependentUpon>ReportForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -455,5 +455,39 @@ namespace Storage
                 }
             }
         }
+
+        public static List<IssueDetailInfo> GetIssueDetailInfo(int issueId)
+        {
+            List<IssueDetailInfo> issue = new List<IssueDetailInfo>();
+            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "GetDetailTaskInfo";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@taskId", issueId);
+
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.HasRows)
+                            while (reader.Read())
+                            {
+                                issue.Add(new IssueDetailInfo(
+                                    int.Parse(reader["IssueId"].ToString()),
+                                    reader["IssueName"].ToString(),
+                                    reader["PriorityName"].ToString(),
+                                    reader["ComplexityName"].ToString(),
+                                    reader["TypeName"].ToString(),
+                                    reader["ExecutorName"].ToString(),
+                                    reader["OwnerName"].ToString(),
+                                    DateTime.Parse(reader["StartDate"].ToString()),
+                                    DateTime.Parse(reader["EndDate"].ToString())));
+                            }
+                    }
+                }
+            }
+            return issue;
+        }
     }
 }
