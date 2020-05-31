@@ -44,8 +44,17 @@
             <ChartCategoryHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Group Name="ChartGroup" />
-                  <Label />
+                  <Group Name="Chart3_CategoryGroup">
+                    <GroupExpressions>
+                      <GroupExpression>=Fields!StateName.Value</GroupExpression>
+                    </GroupExpressions>
+                  </Group>
+                  <SortExpressions>
+                    <SortExpression>
+                      <Value>=Fields!StateName.Value</Value>
+                    </SortExpression>
+                  </SortExpressions>
+                  <Label>=Fields!StateName.Value</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartCategoryHierarchy>
@@ -76,15 +85,20 @@
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
+                        <UseValueAsLabel>true</UseValueAsLabel>
                       </ChartDataLabel>
-                      <Style />
+                      <Style>
+                        <BackgroundGradientType>None</BackgroundGradientType>
+                      </Style>
                       <ChartMarker>
+                        <Size>8pt</Size>
                         <Style />
                       </ChartMarker>
                       <DataElementOutput>Output</DataElementOutput>
                     </ChartDataPoint>
                   </ChartDataPoints>
                   <Type>Bar</Type>
+                  <Subtype>Stacked</Subtype>
                   <Style />
                   <ChartEmptyPoints>
                     <Style />
@@ -158,6 +172,7 @@
                     <CrossAt>NaN</CrossAt>
                     <Minimum>NaN</Minimum>
                     <Maximum>NaN</Maximum>
+                    <HideLabels>=Fields!StateName.Value</HideLabels>
                     <ChartAxisScaleBreak>
                       <Style />
                     </ChartAxisScaleBreak>
@@ -230,7 +245,7 @@
                       <Color>#5c5c5c</Color>
                     </Style>
                     <ChartAxisTitle>
-                      <Caption />
+                      <Caption>Количество задач</Caption>
                       <Style>
                         <FontSize>9pt</FontSize>
                         <Color>#5c5c5c</Color>
@@ -355,21 +370,7 @@
                 <ColumnSeparatorColor>Black</ColumnSeparatorColor>
               </ChartLegend>
             </ChartLegends>
-            <ChartTitles>
-              <ChartTitle Name="Default">
-                <Caption>Заголовок диаграммы</Caption>
-                <Style>
-                  <BackgroundGradientType>None</BackgroundGradientType>
-                  <FontSize>9pt</FontSize>
-                  <FontWeight>Normal</FontWeight>
-                  <TextAlign>Left</TextAlign>
-                  <VerticalAlign>Top</VerticalAlign>
-                  <Color>#a6a6a6</Color>
-                </Style>
-                <Position>TopLeft</Position>
-              </ChartTitle>
-            </ChartTitles>
-            <Palette>Pacific</Palette>
+            <Palette>Pastel</Palette>
             <ChartBorderSkin>
               <Style>
                 <BackgroundColor>Gray</BackgroundColor>
@@ -387,9 +388,9 @@
               </Style>
             </ChartNoDataMessage>
             <DataSetName>ITTasksDataSet</DataSetName>
-            <Top>0.17639cm</Top>
-            <Left>1.45521cm</Left>
-            <Height>7.64583cm</Height>
+            <Top>0.14111cm</Top>
+            <Left>0.3175cm</Left>
+            <Height>7.35479cm</Height>
             <Width>13.79708cm</Width>
             <Style>
               <Border>
@@ -401,13 +402,13 @@
             </Style>
           </Chart>
         </ReportItems>
-        <Height>3.20833in</Height>
+        <Height>2.99316in</Height>
         <Style />
       </Body>
       <Width>6.5in</Width>
       <Page>
         <PageHeader>
-          <Height>3.175cm</Height>
+          <Height>2.56646cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -430,7 +431,6 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.3937cm</Top>
               <Left>2.83104cm</Left>
               <Height>0.75875cm</Height>
               <Width>11.60167cm</Width>
@@ -459,7 +459,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.26483cm</Top>
+              <Top>1.94733cm</Top>
               <Left>0.68792cm</Left>
               <Height>0.6cm</Height>
               <Width>13.74479cm</Width>
@@ -489,7 +489,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>1.32884cm</Top>
+              <Top>1.01134cm</Top>
               <Left>0.68792cm</Left>
               <Height>0.6cm</Height>
               <Width>13.74479cm</Width>
@@ -531,7 +531,7 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>ExecutionTime</rd:DefaultName>
-              <Top>0.42016cm</Top>
+              <Top>0.17639cm</Top>
               <Left>8.43703cm</Left>
               <Height>0.6cm</Height>
               <Width>6.41838cm</Width>

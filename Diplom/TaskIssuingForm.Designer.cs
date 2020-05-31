@@ -53,7 +53,7 @@
             this.cbProject.Location = new System.Drawing.Point(156, 13);
             this.cbProject.Margin = new System.Windows.Forms.Padding(4);
             this.cbProject.Name = "cbProject";
-            this.cbProject.Size = new System.Drawing.Size(221, 26);
+            this.cbProject.Size = new System.Drawing.Size(383, 26);
             this.cbProject.TabIndex = 7;
             this.cbProject.SelectedValueChanged += new System.EventHandler(this.CbProject_SelectedValueChanged);
             // 
@@ -79,7 +79,7 @@
             // 
             // btnSelectEmployee
             // 
-            this.btnSelectEmployee.Location = new System.Drawing.Point(156, 198);
+            this.btnSelectEmployee.Location = new System.Drawing.Point(318, 198);
             this.btnSelectEmployee.Name = "btnSelectEmployee";
             this.btnSelectEmployee.Size = new System.Drawing.Size(221, 26);
             this.btnSelectEmployee.TabIndex = 9;
@@ -125,9 +125,9 @@
             // 
             // btnCalculateDate
             // 
-            this.btnCalculateDate.Location = new System.Drawing.Point(156, 285);
+            this.btnCalculateDate.Location = new System.Drawing.Point(333, 254);
             this.btnCalculateDate.Name = "btnCalculateDate";
-            this.btnCalculateDate.Size = new System.Drawing.Size(221, 25);
+            this.btnCalculateDate.Size = new System.Drawing.Size(206, 25);
             this.btnCalculateDate.TabIndex = 15;
             this.btnCalculateDate.Text = "Рассчитать";
             this.btnCalculateDate.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             this.cbTask.Location = new System.Drawing.Point(156, 60);
             this.cbTask.Margin = new System.Windows.Forms.Padding(4);
             this.cbTask.Name = "cbTask";
-            this.cbTask.Size = new System.Drawing.Size(221, 26);
+            this.cbTask.Size = new System.Drawing.Size(383, 26);
             this.cbTask.TabIndex = 16;
             this.cbTask.SelectedValueChanged += new System.EventHandler(this.CbTask_SelectedValueChanged);
             // 
@@ -149,14 +149,14 @@
             this.cbEmployee.Location = new System.Drawing.Point(156, 165);
             this.cbEmployee.Margin = new System.Windows.Forms.Padding(4);
             this.cbEmployee.Name = "cbEmployee";
-            this.cbEmployee.Size = new System.Drawing.Size(221, 26);
+            this.cbEmployee.Size = new System.Drawing.Size(383, 26);
             this.cbEmployee.TabIndex = 19;
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(279, 375);
+            this.btnCancel.Location = new System.Drawing.Point(440, 329);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 23);
             this.btnCancel.TabIndex = 21;
@@ -166,7 +166,7 @@
             // btnOK
             // 
             this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Location = new System.Drawing.Point(199, 375);
+            this.btnOK.Location = new System.Drawing.Point(360, 329);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(74, 23);
             this.btnOK.TabIndex = 20;
@@ -192,7 +192,7 @@
             // 
             this.ctlEndDate.Location = new System.Drawing.Point(156, 255);
             this.ctlEndDate.Name = "ctlEndDate";
-            this.ctlEndDate.Size = new System.Drawing.Size(221, 24);
+            this.ctlEndDate.Size = new System.Drawing.Size(159, 24);
             this.ctlEndDate.TabIndex = 24;
             // 
             // lblCalculateMessage
@@ -200,7 +200,7 @@
             this.lblCalculateMessage.AutoSize = true;
             this.lblCalculateMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblCalculateMessage.ForeColor = System.Drawing.Color.Green;
-            this.lblCalculateMessage.Location = new System.Drawing.Point(168, 313);
+            this.lblCalculateMessage.Location = new System.Drawing.Point(330, 282);
             this.lblCalculateMessage.Name = "lblCalculateMessage";
             this.lblCalculateMessage.Size = new System.Drawing.Size(209, 30);
             this.lblCalculateMessage.TabIndex = 25;
@@ -211,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(397, 410);
+            this.ClientSize = new System.Drawing.Size(558, 364);
             this.Controls.Add(this.lblCalculateMessage);
             this.Controls.Add(this.ctlEndDate);
             this.Controls.Add(this.tbComplexity);

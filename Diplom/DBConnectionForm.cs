@@ -44,13 +44,13 @@ namespace Diplom
             {
                 MessageBox.Show(message, "Результат проверки соединения с БД",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
-                btnOK.Enabled = true;
+                btnSave.Enabled = true;
             }
             else
             {
                 MessageBox.Show(message, "Результат проверки соединения с БД",
                 MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-                btnOK.Enabled = false;
+                btnSave.Enabled = false;
             }            
         }
 

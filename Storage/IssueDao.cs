@@ -48,7 +48,8 @@ namespace Storage
         public static void Edit(int id, string name,
             int priorityId, int complexityId, int typeId,
             int projectId, string description,
-            int newStateId)
+            int newStateId,
+            int employeeWhoChanged)
         {
             using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
             {
@@ -65,6 +66,7 @@ namespace Storage
                     command.Parameters.AddWithValue("@projectId", projectId);
                     command.Parameters.AddWithValue("@description", description);
                     command.Parameters.AddWithValue("@newStateId", newStateId);
+                    command.Parameters.AddWithValue("@employeeWhoChanged", employeeWhoChanged);
 
                     connection.Open();
                     command.ExecuteNonQuery();
@@ -438,6 +440,15 @@ namespace Storage
         public static void AppointIssueToEmployee(int taskId, int executorId,
             int appointerEmployeeId, DateTime endDate)
         {
+            List<IssueView> subIssues = GetSubIssues(taskId);
+
+            DataTable subissuesIds = new DataTable();
+            subissuesIds.Columns.Add("subTaskId", typeof(int));
+            foreach (var subIssue in subIssues)
+            {
+                subissuesIds.Rows.Add(subIssue.ID);
+            }
+
             using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
@@ -448,7 +459,9 @@ namespace Storage
                     command.Parameters.AddWithValue("@executorId", executorId);
                     command.Parameters.AddWithValue("@employeeIdWhoAppoint", appointerEmployeeId);
                     command.Parameters.AddWithValue("@endDate", endDate);
-                    
+                    var tableParameter = command.Parameters.AddWithValue("@subTaskIds", subissuesIds);
+                    tableParameter.SqlDbType = SqlDbType.Structured;
+
 
                     connection.Open();
                     command.ExecuteNonQuery();

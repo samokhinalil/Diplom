@@ -209,7 +209,8 @@ namespace Diplom
                                   taskForm.Type.ID,
                                   taskForm.Project.ID,
                                   taskForm.Description,
-                                  taskForm.CurrentState.ID);
+                                  taskForm.CurrentState.ID,
+                                  _access.Employee.ID);
                     if (taskForm.SubIssues.Count != 0)
                     {
                         //edit subtasks

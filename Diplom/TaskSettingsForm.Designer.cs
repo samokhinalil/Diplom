@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabControl = new System.Windows.Forms.TabControl();
             this.tabType = new System.Windows.Forms.TabPage();
             this.dgvTypes = new System.Windows.Forms.DataGridView();
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +73,7 @@
             this.StateName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tabControl.SuspendLayout();
             this.tabType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTypes)).BeginInit();
             this.gbTypeEdit.SuspendLayout();
@@ -88,17 +88,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvState)).BeginInit();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tabControl
             // 
-            this.tabControl1.Controls.Add(this.tabType);
-            this.tabControl1.Controls.Add(this.tabPriority);
-            this.tabControl1.Controls.Add(this.tabComplexity);
-            this.tabControl1.Controls.Add(this.tabTaskState);
-            this.tabControl1.Location = new System.Drawing.Point(2, 2);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(348, 398);
-            this.tabControl1.TabIndex = 0;
+            this.tabControl.Controls.Add(this.tabType);
+            this.tabControl.Controls.Add(this.tabPriority);
+            this.tabControl.Controls.Add(this.tabComplexity);
+            this.tabControl.Controls.Add(this.tabTaskState);
+            this.tabControl.Location = new System.Drawing.Point(2, 2);
+            this.tabControl.Name = "tabControl";
+            this.tabControl.SelectedIndex = 0;
+            this.tabControl.Size = new System.Drawing.Size(348, 398);
+            this.tabControl.TabIndex = 0;
             // 
             // tabType
             // 
@@ -541,13 +541,13 @@
             this.ClientSize = new System.Drawing.Size(352, 432);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TaskSettingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка основных сущностей";
-            this.tabControl1.ResumeLayout(false);
+            this.tabControl.ResumeLayout(false);
             this.tabType.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTypes)).EndInit();
             this.gbTypeEdit.ResumeLayout(false);
@@ -570,7 +570,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabType;
         private System.Windows.Forms.TabPage tabPriority;
         private System.Windows.Forms.TabPage tabComplexity;

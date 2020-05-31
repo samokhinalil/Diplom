@@ -33,7 +33,7 @@ namespace Diplom
             dgvTeamEmployees.DataSource = team;
 
             dgvOtherEmployees.DataSource = null;
-            dgvOtherEmployees.DataSource = EmployeeDao.SelectList().Except(team).ToList();
+            dgvOtherEmployees.DataSource = EmployeeDao.SelectList().Where(e=>team.All(t=>t.ID != e.ID)).ToList();
         }
 
         private void BtnAddEmployeeToProject_Click(object sender, EventArgs e)

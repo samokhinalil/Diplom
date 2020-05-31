@@ -30,18 +30,18 @@
         {
             this.gbAppropriateEmployees = new System.Windows.Forms.GroupBox();
             this.dgvOtherEmployees = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAddEmployeeToProject = new System.Windows.Forms.Button();
             this.dgvTeamEmployees = new System.Windows.Forms.DataGridView();
+            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnRemoveEmployeeFromProject = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.gbTeam = new System.Windows.Forms.GroupBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbAppropriateEmployees.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOtherEmployees)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeamEmployees)).BeginInit();
@@ -78,8 +78,33 @@
             this.dgvOtherEmployees.Name = "dgvOtherEmployees";
             this.dgvOtherEmployees.ReadOnly = true;
             this.dgvOtherEmployees.RowHeadersVisible = false;
+            this.dgvOtherEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOtherEmployees.Size = new System.Drawing.Size(796, 137);
             this.dgvOtherEmployees.TabIndex = 4;
+            // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.FillWeight = 20F;
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
+            this.dataGridViewTextBoxColumn2.FillWeight = 93.27411F;
+            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Position";
+            this.dataGridViewTextBoxColumn6.FillWeight = 93.27411F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Должность";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
             // btnAddEmployeeToProject
             // 
@@ -109,8 +134,31 @@
             this.dgvTeamEmployees.Name = "dgvTeamEmployees";
             this.dgvTeamEmployees.ReadOnly = true;
             this.dgvTeamEmployees.RowHeadersVisible = false;
+            this.dgvTeamEmployees.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTeamEmployees.Size = new System.Drawing.Size(796, 159);
             this.dgvTeamEmployees.TabIndex = 16;
+            // 
+            // N
+            // 
+            this.N.DataPropertyName = "ID";
+            this.N.FillWeight = 20F;
+            this.N.HeaderText = "ID";
+            this.N.Name = "N";
+            this.N.ReadOnly = true;
+            // 
+            // FullName
+            // 
+            this.FullName.DataPropertyName = "FullName";
+            this.FullName.HeaderText = "ФИО";
+            this.FullName.Name = "FullName";
+            this.FullName.ReadOnly = true;
+            // 
+            // Position
+            // 
+            this.Position.DataPropertyName = "Position";
+            this.Position.HeaderText = "Должность";
+            this.Position.Name = "Position";
+            this.Position.ReadOnly = true;
             // 
             // btnRemoveEmployeeFromProject
             // 
@@ -157,52 +205,6 @@
             this.gbTeam.TabIndex = 22;
             this.gbTeam.TabStop = false;
             this.gbTeam.Text = "Состав команды";
-            // 
-            // ID
-            // 
-            this.ID.DataPropertyName = "ID";
-            this.ID.FillWeight = 20F;
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "FullName";
-            this.dataGridViewTextBoxColumn2.FillWeight = 93.27411F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "ФИО";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Position";
-            this.dataGridViewTextBoxColumn6.FillWeight = 93.27411F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Должность";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // N
-            // 
-            this.N.DataPropertyName = "ID";
-            this.N.FillWeight = 20F;
-            this.N.HeaderText = "ID";
-            this.N.Name = "N";
-            this.N.ReadOnly = true;
-            // 
-            // FullName
-            // 
-            this.FullName.DataPropertyName = "FullName";
-            this.FullName.HeaderText = "ФИО";
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            // 
-            // Position
-            // 
-            this.Position.DataPropertyName = "Position";
-            this.Position.HeaderText = "Должность";
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
             // 
             // TeamForm
             // 

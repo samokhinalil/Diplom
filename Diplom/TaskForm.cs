@@ -151,7 +151,8 @@ namespace Diplom
                                   editedSubIssue.TypeID,
                                   editedSubIssue.ProjectID,
                                   editedSubIssue.Description,
-                                  editedSubIssue.CurrentState.ID);
+                                  editedSubIssue.CurrentState.ID,
+                                  _access.Employee.ID);
 
                     int index = SubIssues.FindIndex(i => i.ID == subissue.ID);
                     SubIssues.RemoveAt(index);

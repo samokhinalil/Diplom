@@ -40,7 +40,7 @@
             // 
             // btnGenerateReport
             // 
-            this.btnGenerateReport.Location = new System.Drawing.Point(459, 11);
+            this.btnGenerateReport.Location = new System.Drawing.Point(359, 4);
             this.btnGenerateReport.Name = "btnGenerateReport";
             this.btnGenerateReport.Size = new System.Drawing.Size(140, 21);
             this.btnGenerateReport.TabIndex = 15;
@@ -50,14 +50,14 @@
             // 
             // ctlDateTo
             // 
-            this.ctlDateTo.Location = new System.Drawing.Point(292, 11);
+            this.ctlDateTo.Location = new System.Drawing.Point(207, 5);
             this.ctlDateTo.Name = "ctlDateTo";
             this.ctlDateTo.Size = new System.Drawing.Size(137, 20);
             this.ctlDateTo.TabIndex = 14;
             // 
             // ctlDateFrom
             // 
-            this.ctlDateFrom.Location = new System.Drawing.Point(101, 12);
+            this.ctlDateFrom.Location = new System.Drawing.Point(36, 5);
             this.ctlDateFrom.Name = "ctlDateFrom";
             this.ctlDateFrom.Size = new System.Drawing.Size(137, 20);
             this.ctlDateFrom.TabIndex = 13;
@@ -65,7 +65,7 @@
             // laDateTo
             // 
             this.laDateTo.AutoSize = true;
-            this.laDateTo.Location = new System.Drawing.Point(264, 11);
+            this.laDateTo.Location = new System.Drawing.Point(179, 4);
             this.laDateTo.Name = "laDateTo";
             this.laDateTo.Size = new System.Drawing.Size(22, 13);
             this.laDateTo.TabIndex = 12;
@@ -74,7 +74,7 @@
             // laDateFrom
             // 
             this.laDateFrom.AutoSize = true;
-            this.laDateFrom.Location = new System.Drawing.Point(79, 11);
+            this.laDateFrom.Location = new System.Drawing.Point(14, 5);
             this.laDateFrom.Name = "laDateFrom";
             this.laDateFrom.Size = new System.Drawing.Size(16, 13);
             this.laDateFrom.TabIndex = 11;
@@ -83,7 +83,7 @@
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Diplom.Report3.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(101, 52);
+            this.reportViewer1.Location = new System.Drawing.Point(1, 45);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(498, 341);
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 398);
+            this.ClientSize = new System.Drawing.Size(500, 387);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.btnGenerateReport);
             this.Controls.Add(this.ctlDateTo);

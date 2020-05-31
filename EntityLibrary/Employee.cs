@@ -37,5 +37,17 @@ namespace EntityLibrary
             Email = email;
             Position = position;
         }
+
+        public bool Equals(Employee other)
+        {
+            if (other is null)
+                return false;
+            return ID == other.ID;
+        }
+
+        public override int GetHashCode()
+        {
+            return ID.GetHashCode();
+        }
     }
 }

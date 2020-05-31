@@ -36,7 +36,6 @@
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.ctlFile = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlChangeUser = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctlCheckConnection = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlTaskSettings = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlShowPositions = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -118,7 +117,6 @@
             // 
             this.ctlFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctlChangeUser,
-            this.ctlCheckConnection,
             this.ctlTaskSettings,
             this.ctlShowPositions,
             this.toolStripMenuItem1,
@@ -133,13 +131,6 @@
             this.ctlChangeUser.Size = new System.Drawing.Size(228, 22);
             this.ctlChangeUser.Text = "Сменить пользователя";
             this.ctlChangeUser.Click += new System.EventHandler(this.CtlChangeUser_Click);
-            // 
-            // ctlCheckConnection
-            // 
-            this.ctlCheckConnection.Name = "ctlCheckConnection";
-            this.ctlCheckConnection.Size = new System.Drawing.Size(228, 22);
-            this.ctlCheckConnection.Text = "Проверить соединение";
-            this.ctlCheckConnection.Click += new System.EventHandler(this.CtlCheckConnection_Click);
             // 
             // ctlTaskSettings
             // 
@@ -214,7 +205,6 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem ctlFile;
         private System.Windows.Forms.ToolStripMenuItem ctlChangeUser;
-        private System.Windows.Forms.ToolStripMenuItem ctlCheckConnection;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem ctlExit;
         private System.Windows.Forms.ToolStripMenuItem ctlTaskSettings;

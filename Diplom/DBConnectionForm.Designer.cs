@@ -41,7 +41,7 @@
             this.cbEncrypt = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCheckConnection = new System.Windows.Forms.Button();
-            this.btnOK = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -163,17 +163,17 @@
             this.btnCheckConnection.UseVisualStyleBackColor = true;
             this.btnCheckConnection.Click += new System.EventHandler(this.BtnCheckConnection_Click);
             // 
-            // btnOK
+            // btnSave
             // 
-            this.btnOK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(205, 315);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(104, 25);
-            this.btnOK.TabIndex = 13;
-            this.btnOK.Text = "Сохранить";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.BtnOK_Click);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Enabled = false;
+            this.btnSave.Location = new System.Drawing.Point(205, 315);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(104, 25);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Сохранить";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnOK_Click);
             // 
             // btnCancel
             // 
@@ -191,7 +191,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 347);
             this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnOK);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCheckConnection);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.cbEncrypt);
@@ -206,7 +206,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.laConnectionString);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "DBConnectionForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Настройка соединения с базой данных";
@@ -230,7 +230,7 @@
         private System.Windows.Forms.ComboBox cbEncrypt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCheckConnection;
-        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
     }
 }

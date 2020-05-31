@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityLibrary", "EntityLibr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Storage\Logic.csproj", "{84D70037-A772-4C98-B4FA-E8FD209F10C3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject", "UnitTestProject\UnitTestProject.csproj", "{8F6CA343-64C3-41F1-8163-28DC3A86A347}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{84D70037-A772-4C98-B4FA-E8FD209F10C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{84D70037-A772-4C98-B4FA-E8FD209F10C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{84D70037-A772-4C98-B4FA-E8FD209F10C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F6CA343-64C3-41F1-8163-28DC3A86A347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F6CA343-64C3-41F1-8163-28DC3A86A347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F6CA343-64C3-41F1-8163-28DC3A86A347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F6CA343-64C3-41F1-8163-28DC3A86A347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

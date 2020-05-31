@@ -65,24 +65,23 @@ namespace Diplom
             cbTask.DataSource = IssueDao.GetProjectOpenIssues(projectId);
             cbTask.DisplayMember = "IssueName";
             cbTask.ValueMember = "ID";
+
             if (cbTask.Items.Count != 0)
             {
                 cbTask.SelectedValue = selectedTaskId;
 
                 UpdatePriorityAndComplexityText();
             }
-            else
-            {
-                cbEmployee.Enabled = false;
-                ctlEndDate.Enabled = false;
-                btnCalculateDate.Enabled = false;
-                btnSelectEmployee.Enabled = false;
-            }
+
+            cbEmployee.Enabled = cbTask.SelectedIndex != 0;
+            ctlEndDate.Enabled = cbTask.SelectedIndex != 0;
+            btnCalculateDate.Enabled = cbTask.SelectedIndex != 0;
+            btnSelectEmployee.Enabled = cbTask.SelectedIndex != 0;
         }
 
         private void UpdatePriorityAndComplexityText()
         {
-            if (cbTask.SelectedItem != null)
+            if (cbTask.SelectedIndex != -1)
             {
                 tbPriority.Text = ((IssueListView)cbTask.SelectedItem).PriorityName;
                 tbComplexity.Text = ((IssueListView)cbTask.SelectedItem).ComplexityName;

@@ -24,7 +24,9 @@ namespace Diplom
 
             _access = access;
 
-            laAccess.Text = string.Join(" ", "Вы вошли как:", _access.Employee.FullName);
+            laAccess.Text = string.Join(" ", "Вы вошли как:",
+                _access.Employee.FullName,
+                "(", _access.Role.RoleName, ")");
         }
 
         private void BtnTasks_Click(object sender, EventArgs e)

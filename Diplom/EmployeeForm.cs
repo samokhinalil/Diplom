@@ -52,7 +52,7 @@ namespace Diplom
             tbEmployeePassport.Text = employee.Passport;
             tbEmployeePhone.Text = employee.Phone;
             tbEmployeeEmail.Text = employee.Email;
-            cbEmployeePosition.SelectedItem = employee.Position;
+            cbEmployeePosition.SelectedValue = employee.Position.ID;
 
             laProject.Visible = false;
             cbProjects.Visible = false;

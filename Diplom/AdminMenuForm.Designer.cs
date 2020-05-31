@@ -46,7 +46,7 @@
             // laAccess
             // 
             this.laAccess.AutoSize = true;
-            this.laAccess.Location = new System.Drawing.Point(2, 245);
+            this.laAccess.Location = new System.Drawing.Point(3, 155);
             this.laAccess.Name = "laAccess";
             this.laAccess.Size = new System.Drawing.Size(222, 18);
             this.laAccess.TabIndex = 9;
@@ -151,13 +151,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 263);
+            this.ClientSize = new System.Drawing.Size(513, 179);
             this.Controls.Add(this.btnBackups);
             this.Controls.Add(this.btnEmployees);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.laAccess);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AdminMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Меню администратора";

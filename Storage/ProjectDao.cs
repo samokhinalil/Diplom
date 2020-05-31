@@ -45,7 +45,7 @@ namespace Storage
                     command.CommandText = "EditProject";
 
                     command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@id", project.ID);
+                    command.Parameters.AddWithValue("@projectID", project.ID);
                     command.Parameters.AddWithValue("@name", project.ProjectName);
                     command.Parameters.AddWithValue("@startDate", project.StartDate);
 

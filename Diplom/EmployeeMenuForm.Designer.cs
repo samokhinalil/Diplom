@@ -30,7 +30,7 @@
         {
             this.btnOpenTasks = new System.Windows.Forms.Button();
             this.btnDoneTasks = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.ctlFile = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlChangeUser = new System.Windows.Forms.ToolStripMenuItem();
             this.ctlEditEmployee = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,14 +40,14 @@
             this.btnGetIssuesStates = new System.Windows.Forms.Button();
             this.btnMyTeam = new System.Windows.Forms.Button();
             this.laAccess = new System.Windows.Forms.Label();
-            this.menuStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOpenTasks
             // 
             this.btnOpenTasks.Location = new System.Drawing.Point(0, 29);
             this.btnOpenTasks.Name = "btnOpenTasks";
-            this.btnOpenTasks.Size = new System.Drawing.Size(357, 44);
+            this.btnOpenTasks.Size = new System.Drawing.Size(521, 50);
             this.btnOpenTasks.TabIndex = 0;
             this.btnOpenTasks.Text = "Открытые задачи";
             this.btnOpenTasks.UseVisualStyleBackColor = true;
@@ -57,21 +57,21 @@
             // 
             this.btnDoneTasks.Location = new System.Drawing.Point(0, 79);
             this.btnDoneTasks.Name = "btnDoneTasks";
-            this.btnDoneTasks.Size = new System.Drawing.Size(357, 48);
+            this.btnDoneTasks.Size = new System.Drawing.Size(521, 50);
             this.btnDoneTasks.TabIndex = 1;
             this.btnDoneTasks.Text = "Выполненные задачи";
             this.btnDoneTasks.UseVisualStyleBackColor = true;
             this.btnDoneTasks.Click += new System.EventHandler(this.BtnDoneTasks_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctlFile});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(357, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(521, 24);
+            this.menuStrip.TabIndex = 2;
+            this.menuStrip.Text = "menuStrip1";
             // 
             // ctlFile
             // 
@@ -119,9 +119,9 @@
             // 
             // btnGetIssuesStates
             // 
-            this.btnGetIssuesStates.Location = new System.Drawing.Point(0, 133);
+            this.btnGetIssuesStates.Location = new System.Drawing.Point(0, 129);
             this.btnGetIssuesStates.Name = "btnGetIssuesStates";
-            this.btnGetIssuesStates.Size = new System.Drawing.Size(357, 44);
+            this.btnGetIssuesStates.Size = new System.Drawing.Size(521, 50);
             this.btnGetIssuesStates.TabIndex = 3;
             this.btnGetIssuesStates.Text = "История выполнения задач";
             this.btnGetIssuesStates.UseVisualStyleBackColor = true;
@@ -129,9 +129,9 @@
             // 
             // btnMyTeam
             // 
-            this.btnMyTeam.Location = new System.Drawing.Point(0, 183);
+            this.btnMyTeam.Location = new System.Drawing.Point(0, 179);
             this.btnMyTeam.Name = "btnMyTeam";
-            this.btnMyTeam.Size = new System.Drawing.Size(357, 42);
+            this.btnMyTeam.Size = new System.Drawing.Size(521, 50);
             this.btnMyTeam.TabIndex = 5;
             this.btnMyTeam.Text = "Моя команда";
             this.btnMyTeam.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             // laAccess
             // 
             this.laAccess.AutoSize = true;
-            this.laAccess.Location = new System.Drawing.Point(12, 241);
+            this.laAccess.Location = new System.Drawing.Point(12, 235);
             this.laAccess.Name = "laAccess";
             this.laAccess.Size = new System.Drawing.Size(56, 18);
             this.laAccess.TabIndex = 9;
@@ -150,23 +150,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 262);
+            this.ClientSize = new System.Drawing.Size(521, 258);
             this.Controls.Add(this.laAccess);
             this.Controls.Add(this.btnMyTeam);
             this.Controls.Add(this.btnGetIssuesStates);
             this.Controls.Add(this.btnDoneTasks);
             this.Controls.Add(this.btnOpenTasks);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmployeeMenuForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главное меню";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EmployeeMenuForm_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.EmployeeMenuForm_FormClosed);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,7 +176,7 @@
 
         private System.Windows.Forms.Button btnOpenTasks;
         private System.Windows.Forms.Button btnDoneTasks;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem ctlFile;
         private System.Windows.Forms.ToolStripMenuItem ctlChangeUser;
         private System.Windows.Forms.ToolStripMenuItem ctlEditEmployee;
