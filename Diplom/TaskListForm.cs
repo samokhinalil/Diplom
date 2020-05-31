@@ -19,6 +19,15 @@ namespace Diplom
         private const string pmRoleName = "Менеджер проекта";
         private const string devRoleName = "Разработчик";
 
+        private EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+        private ProjectDao projectDao = new ProjectDao(ConnectionString.ConnectionStringName);
+        private TeamDao teamDao = new TeamDao(ConnectionString.ConnectionStringName);
+        private IssueDao issueDao = new IssueDao(ConnectionString.ConnectionStringName);
+        private IssueTypeDao issueTypeDao = new IssueTypeDao(ConnectionString.ConnectionStringName);
+        private PriorityDao priorityDao = new PriorityDao(ConnectionString.ConnectionStringName);
+        private ComplexityDao complexityDao = new ComplexityDao(ConnectionString.ConnectionStringName);
+        private StateDao stateDao = new StateDao(ConnectionString.ConnectionStringName);
+
         private enum SortMode { Asceding, Desceding };
         private SortMode _sortMode = SortMode.Asceding;
 
@@ -72,13 +81,13 @@ namespace Diplom
             {
                 if (selector == 1)//открытые задачи
                 {
-                    dgvTasks.DataSource = IssueDao.GetEmployeeOpenIssues(employeeId, projectId);
+                    dgvTasks.DataSource = issueDao.GetEmployeeOpenIssues(employeeId, projectId);
                     
 
                 }
                 else if (selector == 2)//выполненные задачи
                 {
-                    dgvTasks.DataSource = IssueDao.GetEmployeeExecutedIssues(employeeId, projectId);
+                    dgvTasks.DataSource = issueDao.GetEmployeeExecutedIssues(employeeId, projectId);
                 }
 
                 if (dgvTasks.DataSource == null)
@@ -104,7 +113,7 @@ namespace Diplom
         private void UpdateComboBoxEmployee(int employeeId)
         {
             cbEmployee.Items.Clear();
-            cbEmployee.Items.Add(EmployeeDao.GetByID(employeeId));
+            cbEmployee.Items.Add(employeeDao.GetByID(employeeId));
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
             if (cbEmployee.Items != null)
@@ -116,7 +125,7 @@ namespace Diplom
         private void UpdateComboBoxProjectEmployees(int projectId)
         {
             cbEmployee.DataSource = null;
-            cbEmployee.DataSource = TeamDao.GetProjectTeam(projectId);
+            cbEmployee.DataSource = teamDao.GetProjectTeam(projectId);
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
             if (cbEmployee.DataSource != null)
@@ -128,7 +137,7 @@ namespace Diplom
         private void UpdateDgvTasks()
         {
             dgvTasks.DataSource = null;
-            dgvTasks.DataSource = IssueDao.SelectList();
+            dgvTasks.DataSource = issueDao.SelectList();
         }
 
         private void UpdateDgvTasks(int projectId)
@@ -137,7 +146,7 @@ namespace Diplom
             if (_access.Role.RoleName.Equals(pmRoleName))
             {
                 dgvTasks.DataSource = null;
-                dgvTasks.DataSource = IssueDao.GetProjectIssues(projectId);
+                dgvTasks.DataSource = issueDao.GetProjectIssues(projectId);
             }
 
             if (_access.Role.RoleName.Equals(devRoleName))
@@ -149,7 +158,7 @@ namespace Diplom
         private void UpdateDgvEmployeeTasks(int employeeId, int projectId)
         {
             dgvTasks.DataSource = null;
-            dgvTasks.DataSource = IssueDao.GetEmployeeIssues(employeeId, projectId);
+            dgvTasks.DataSource = issueDao.GetEmployeeIssues(employeeId, projectId);
         }
 
         private void BtnAddTask_Click(object sender, EventArgs e)
@@ -158,7 +167,7 @@ namespace Diplom
             taskForm.ShowDialog();
             if (taskForm.DialogResult == DialogResult.OK)
             {
-                int issueID = IssueDao.Add(taskForm.IssueName,
+                int issueID = issueDao.Add(taskForm.IssueName,
                              taskForm.Priority.ID,
                              taskForm.Complexity.ID,
                              taskForm.Type.ID,
@@ -169,7 +178,7 @@ namespace Diplom
                 if (taskForm.SubIssues.Count != 0)
                 {
                     //add subtasks
-                    IssueDao.InsertIssueSubIssues(issueID, taskForm.SubIssues);
+                    issueDao.InsertIssueSubIssues(issueID, taskForm.SubIssues);
                 }
 
                 int projectId = ((Project)cbProject.SelectedItem).ID;
@@ -196,13 +205,13 @@ namespace Diplom
             if (dgvTasks.CurrentCell != null)
             {
                 int issueID = ((IssueListView)dgvTasks.CurrentRow.DataBoundItem).ID;
-                IssueView issueView = IssueDao.GetByID(issueID);
+                IssueView issueView = issueDao.GetByID(issueID);
 
                 TaskForm taskForm = new TaskForm(issueView, _access);
                 taskForm.ShowDialog();
                 if (taskForm.DialogResult == DialogResult.OK)
                 {
-                    IssueDao.Edit(taskForm.ID,
+                    issueDao.Edit(taskForm.ID,
                                   taskForm.IssueName,
                                   taskForm.Priority.ID,
                                   taskForm.Complexity.ID,
@@ -214,7 +223,7 @@ namespace Diplom
                     if (taskForm.SubIssues.Count != 0)
                     {
                         //edit subtasks
-                        IssueDao.InsertIssueSubIssues(taskForm.ID, taskForm.SubIssues);
+                        issueDao.InsertIssueSubIssues(taskForm.ID, taskForm.SubIssues);
                     }
 
                     int projectId = ((Project)cbProject.SelectedItem).ID;
@@ -241,14 +250,14 @@ namespace Diplom
             cbType.DataSource = null;
             cbType.DisplayMember = "TypeName";
             cbType.ValueMember = "ID";
-            cbType.DataSource = IssueTypeDao.SelectList();
+            cbType.DataSource = issueTypeDao.SelectList();
             cbType.SelectedValue = selected;
         }
 
         private void InitPriorityComboBox(int selected)
         {
             cbPriority.DataSource = null;
-            cbPriority.DataSource = PriorityDao.SelectList();
+            cbPriority.DataSource = priorityDao.SelectList();
             cbPriority.DisplayMember = "PriorityName";
             cbPriority.ValueMember = "ID";
             cbPriority.SelectedValue = selected;
@@ -257,7 +266,7 @@ namespace Diplom
         private void InitComplexityComboBox(int selected)
         {
             cbComplexity.DataSource = null;
-            cbComplexity.DataSource = ComplexityDao.SelectList();
+            cbComplexity.DataSource = complexityDao.SelectList();
             cbComplexity.DisplayMember = "ComplexityName";
             cbComplexity.ValueMember = "ID";
             cbComplexity.SelectedValue = selected;
@@ -266,7 +275,7 @@ namespace Diplom
         private void InitProjectComboBox(int employeeId)
         {
             cbProject.DataSource = null;
-            cbProject.DataSource = ProjectDao.GetEmployeeProjects(employeeId);
+            cbProject.DataSource = projectDao.GetEmployeeProjects(employeeId);
             cbProject.DisplayMember = "ProjectName";
             cbProject.ValueMember = "ID";
             if (cbProject.DataSource != null)
@@ -278,7 +287,7 @@ namespace Diplom
         private void InitStateComboBox(int selected)
         {
             cbState.DataSource = null;
-            cbState.DataSource = StateDao.SelectList();
+            cbState.DataSource = stateDao.SelectList();
             cbState.DisplayMember = "StateName";
             cbState.ValueMember = "ID";
             cbState.SelectedValue = selected;
@@ -356,7 +365,7 @@ namespace Diplom
                 {
                     if (id != 0)
                     {
-                        IssueDao.ChangeIssueState(
+                        issueDao.ChangeIssueState(
                             id,
                             stateListForm.State.ID,
                             _access.Employee.ID);
@@ -422,7 +431,7 @@ namespace Diplom
         private void BtnCloseAllTasks_Click(object sender, EventArgs e)
         {
             List<IssueListView> issues = (List<IssueListView>)dgvTasks.DataSource;
-            IssueDao.CloseAllExecutedIssues(_access.Employee.ID, issues);
+            issueDao.CloseAllExecutedIssues(_access.Employee.ID, issues);
             if (cbProject.SelectedItem != null)
             {
                 int projectId = ((Project)cbProject.SelectedItem).ID;
@@ -435,7 +444,7 @@ namespace Diplom
             if (dgvTasks.CurrentCell != null)
             {
                 IssueListView issue = (IssueListView)dgvTasks.CurrentRow.DataBoundItem;
-                IssueDao.CloseExecutedIssue(_access.Employee.ID, issue.ID);
+                issueDao.CloseExecutedIssue(_access.Employee.ID, issue.ID);
 
                 if (cbProject.SelectedItem != null)
                 {

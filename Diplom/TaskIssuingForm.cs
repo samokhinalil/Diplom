@@ -50,7 +50,8 @@ namespace Diplom
         private void InitProjectComboBox(int employeeId)
         {
             cbProject.DataSource = null;
-            cbProject.DataSource = ProjectDao.GetEmployeeProjects(employeeId);
+            ProjectDao projectDao = new ProjectDao(ConnectionString.ConnectionStringName);
+            cbProject.DataSource = projectDao.GetEmployeeProjects(employeeId);
             cbProject.DisplayMember = "ProjectName";
             cbProject.ValueMember = "ID";
             if (cbProject.DataSource != null)
@@ -62,7 +63,8 @@ namespace Diplom
         private void UpdateComboBoxTasks(int projectId, int selectedTaskId)
         {
             cbTask.DataSource = null;
-            cbTask.DataSource = IssueDao.GetProjectOpenIssues(projectId);
+            IssueDao issueDao = new IssueDao(ConnectionString.ConnectionStringName);
+            cbTask.DataSource = issueDao.GetProjectOpenIssues(projectId);
             cbTask.DisplayMember = "IssueName";
             cbTask.ValueMember = "ID";
 
@@ -98,7 +100,8 @@ namespace Diplom
             cbEmployee.DataSource = null;
             if (projectId != 0)
             {
-                cbEmployee.DataSource = TeamDao.GetProjectTeam(projectId);
+                TeamDao teamDao = new TeamDao(ConnectionString.ConnectionStringName);
+                cbEmployee.DataSource = teamDao.GetProjectTeam(projectId);
                 cbEmployee.DisplayMember = "FullName";
                 cbEmployee.ValueMember = "ID";
             }
@@ -139,7 +142,8 @@ namespace Diplom
         {
             if(cbTask.SelectedItem != null && cbEmployee.SelectedItem != null)
             {
-                IssueDao.AppointIssueToEmployee(((IssueListView)cbTask.SelectedItem).ID,
+                IssueDao issueDao = new IssueDao(ConnectionString.ConnectionStringName);
+                issueDao.AppointIssueToEmployee(((IssueListView)cbTask.SelectedItem).ID,
                 ((Employee)cbEmployee.SelectedItem).ID, _access.Employee.ID,
                 ctlEndDate.Value);
 

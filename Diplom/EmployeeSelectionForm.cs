@@ -16,13 +16,15 @@ namespace Diplom
     {
         public int EmployeeID { get; set; }
 
+        private TeamDao teamDao = new TeamDao(ConnectionString.ConnectionStringName);
+
         public EmployeeSelectionForm(int projectId)
         {
             InitializeComponent();
 
             dgvEmployees.DataSource = null;
 
-            var employees = TeamDao.GetProjectTeam(projectId);
+            var employees = teamDao.GetProjectTeam(projectId);
             CoefficientCalculatorDao coefficientCalculator = new CoefficientCalculatorDao(employees);
             dgvEmployees.DataSource = coefficientCalculator.GetEmployeesWithCoefficient();
         }

@@ -19,6 +19,11 @@ namespace Diplom
         private enum SortMode { Asceding, Desceding };
         private SortMode _sortMode = SortMode.Asceding;
 
+        private EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+        private PositionDao positionDao = new PositionDao(ConnectionString.ConnectionStringName);
+        private ProjectDao projectDao = new ProjectDao(ConnectionString.ConnectionStringName);
+        private TeamDao teamDao = new TeamDao(ConnectionString.ConnectionStringName);
+
         public EmployeeListForm()
         {
             InitializeComponent();
@@ -49,7 +54,7 @@ namespace Diplom
         private void InitPositionSearchComboBox()
         {
             cbSearchEmployeePosition.DataSource = null;
-            cbSearchEmployeePosition.DataSource = PositionDao.SelectList();
+            cbSearchEmployeePosition.DataSource = positionDao.SelectList();
             cbSearchEmployeePosition.DisplayMember = "PositionName";
             cbSearchEmployeePosition.ValueMember = "ID";
             cbSearchEmployeePosition.SelectedValue = 0;
@@ -58,7 +63,7 @@ namespace Diplom
         private void InitEmployeeProjectComboBox(int employeeId)
         {
             cbProject.DataSource = null;
-            cbProject.DataSource = ProjectDao.GetEmployeeProjects(employeeId);
+            cbProject.DataSource = projectDao.GetEmployeeProjects(employeeId);
             cbProject.DisplayMember = "ProjectName";
             cbProject.ValueMember = "ID";
             if(cbProject.DataSource != null)
@@ -73,11 +78,11 @@ namespace Diplom
             dgvEmployees.DataSource = null;
             if(projectId != 0)
             {
-                dgvEmployees.DataSource = TeamDao.GetProjectTeam(projectId);
+                dgvEmployees.DataSource = teamDao.GetProjectTeam(projectId);
             }
             else
             {
-                dgvEmployees.DataSource = EmployeeDao.SelectList();
+                dgvEmployees.DataSource = employeeDao.SelectList();
             }
         }
 
@@ -87,14 +92,14 @@ namespace Diplom
             employeeForm.ShowDialog();
             if (employeeForm.DialogResult == DialogResult.OK)
             {
-                EmployeeDao.Add(new Employee(employeeForm.FullName, employeeForm.Passport,
+                employeeDao.Add(new Employee(employeeForm.FullName, employeeForm.Passport,
                     employeeForm.Phone, employeeForm.Email, employeeForm.Position));
 
                 UpdateDgvEmployees(((Project)cbProject.SelectedItem).ID);
 
                 if (employeeForm.Project != null)
                 {
-                    TeamDao.AddEmployeeToProject(employeeForm.Project.ID,
+                    teamDao.AddEmployeeToProject(employeeForm.Project.ID,
                                                  employeeForm.EmployeeID);
                 }
             }
@@ -109,7 +114,7 @@ namespace Diplom
             }
             else
             {
-                Employee employee = EmployeeDao.GetByID(
+                Employee employee = employeeDao.GetByID(
                     Convert.ToInt32(dgvEmployees.CurrentRow.Cells[0].Value));
                 EmployeeForm employeeForm = new EmployeeForm(employee);
                 employeeForm.ShowDialog();
@@ -122,7 +127,7 @@ namespace Diplom
                     employee.Email = employeeForm.Email;
                     employee.Position = employeeForm.Position;
 
-                    EmployeeDao.Edit(employee);
+                    employeeDao.Edit(employee);
 
                     UpdateDgvEmployees(((Project)cbProject.SelectedItem).ID);
                 }

@@ -9,8 +9,7 @@ namespace EntityLibrary
 {
     public class ConnectionString
     {
-        public static string CurrentConnectionString =
-            ConfigurationManager.ConnectionStrings["CurrentConnectionString"].ConnectionString;
+        public static string ConnectionStringName = "DefaultConnectionString";
 
         public string DataSource { get; set; }
         public string InitialCatalog { get; set; }

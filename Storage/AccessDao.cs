@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class AccessDao
     {
-        public static Access CheckAccess(string login, string hashPassword)
+        private string connectionString;
+
+        public AccessDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public Access CheckAccess(string login, string hashPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -51,15 +59,15 @@ namespace Storage
             return null;
         }
 
-        public static void GrantAccessRights(Access access)
+        public void GrantAccessRights(Access access)
         {
             DeleteAccess(access);
             AddAccess(access);
         }
 
-        private static void DeleteAccess(Access access)
+        private void DeleteAccess(Access access)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -74,9 +82,9 @@ namespace Storage
             }
         }
 
-        private static void AddAccess(Access access)
+        private void AddAccess(Access access)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

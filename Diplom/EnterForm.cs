@@ -44,7 +44,8 @@ namespace Diplom
                 }
                 else
                 {
-                    Access = AccessDao.CheckAccess(tbLogin.Text, SHA1Hasher.GetHash(tbPassword.Text));
+                    AccessDao accessDao = new AccessDao("DefaultConnectionString");
+                    Access = accessDao.CheckAccess(tbLogin.Text, SHA1Hasher.GetHash(tbPassword.Text));
                     if (Access != null)
                     {
                         if (Access.Role.RoleName.Equals("Менеджер проекта"))

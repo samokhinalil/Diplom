@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class EmployeeDao
     {
-        public static void Add(Employee employee)
+        private string connectionString;
+
+        public EmployeeDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void Add(Employee employee)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -40,9 +48,9 @@ namespace Storage
             }
         }
 
-        public static void Edit(Employee employee)
+        public void Edit(Employee employee)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -63,10 +71,10 @@ namespace Storage
             }
         }
 
-        public static Employee GetByID(int index)
+        public Employee GetByID(int index)
         {
             Employee employee = new Employee();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -90,10 +98,10 @@ namespace Storage
             return employee;
         }
 
-        public static List<Employee> SelectList()
+        public List<Employee> SelectList()
         {
             List<Employee> employees = new List<Employee>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

@@ -36,7 +36,8 @@ namespace Diplom
         private void InitPositionComboBox()
         {
             cbEmployeePosition.DataSource = null;
-            cbEmployeePosition.DataSource = PositionDao.SelectList();
+            PositionDao positionDao = new PositionDao(ConnectionString.ConnectionStringName);
+            cbEmployeePosition.DataSource = positionDao.SelectList();
             cbEmployeePosition.DisplayMember = "PositionName";
             cbEmployeePosition.ValueMember = "ID";
         }

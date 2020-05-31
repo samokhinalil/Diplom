@@ -14,13 +14,15 @@ namespace Diplom
 {
     public partial class IssueHistoryForm : Form
     {
+        private IssueHistoryDao issueHistoryDao = new IssueHistoryDao(ConnectionString.ConnectionStringName);
+
         public IssueHistoryForm(Access access)
         {
             InitializeComponent();
 
             dgvHistory.DataSource = null;
             dgvHistory.DataSource = 
-                IssueHistoryDao.GetEmployeeIssuesHistory(access.Employee.ID);
+                issueHistoryDao.GetEmployeeIssuesHistory(access.Employee.ID);
         }
 
         private void DgvHistory_SelectionChanged(object sender, EventArgs e)

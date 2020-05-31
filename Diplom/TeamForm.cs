@@ -16,6 +16,9 @@ namespace Diplom
     {
         private Project project;
 
+        private EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+        private TeamDao teamDao = new TeamDao(ConnectionString.ConnectionStringName);
+
         public TeamForm(Project project)
         {
             InitializeComponent();
@@ -28,12 +31,12 @@ namespace Diplom
 
         private void UpdateAll()
         {
-            var team = TeamDao.GetProjectTeam(project.ID);
+            var team = teamDao.GetProjectTeam(project.ID);
             dgvTeamEmployees.DataSource = null;
             dgvTeamEmployees.DataSource = team;
 
             dgvOtherEmployees.DataSource = null;
-            dgvOtherEmployees.DataSource = EmployeeDao.SelectList().Where(e=>team.All(t=>t.ID != e.ID)).ToList();
+            dgvOtherEmployees.DataSource = employeeDao.SelectList().Where(e=>team.All(t=>t.ID != e.ID)).ToList();
         }
 
         private void BtnAddEmployeeToProject_Click(object sender, EventArgs e)
@@ -42,7 +45,7 @@ namespace Diplom
             {
                 int employeeId = ((Employee)dgvOtherEmployees.CurrentRow
                     .DataBoundItem).ID;
-                TeamDao.AddEmployeeToProject(project.ID, employeeId);
+                teamDao.AddEmployeeToProject(project.ID, employeeId);
                 UpdateAll();
                 MessageBox.Show("Сотрудник добавлен в команду.", "Информационное сообщение",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
@@ -60,7 +63,7 @@ namespace Diplom
             {
                 int employeeId = ((Employee)dgvTeamEmployees.CurrentRow
                     .DataBoundItem).ID;
-                TeamDao.DeleteEmployeeFromProject(project.ID, employeeId);
+                teamDao.DeleteEmployeeFromProject(project.ID, employeeId);
                 UpdateAll();
                 MessageBox.Show("Сотрудник удален из команды.", "Информационное сообщение",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Information);

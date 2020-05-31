@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using EntityLibrary;
+using Microsoft.Reporting.WinForms;
 using Storage;
 using System;
 using System.Collections.Generic;
@@ -14,11 +15,13 @@ namespace Diplom
 {
     public partial class IssueDetailInfoForm : Form
     {
+        private IssueDao issueDao = new IssueDao(ConnectionString.ConnectionStringName);
+
         public IssueDetailInfoForm(int issueId)
         {
             InitializeComponent();
 
-            var data = IssueDao.GetIssueDetailInfo(issueId);
+            var data = issueDao.GetIssueDetailInfo(issueId);
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(
                 new ReportDataSource("ITTasksDataSet", data));

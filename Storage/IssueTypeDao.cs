@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class IssueTypeDao
     {
-        public static void Add(IssueType type)
+        private string connectionString;
+
+        public IssueTypeDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void Add(IssueType type)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -35,9 +43,9 @@ namespace Storage
             }
         }
 
-        public static void Edit(IssueType type)
+        public void Edit(IssueType type)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -52,10 +60,10 @@ namespace Storage
             }
         }
 
-        public static List<IssueType> SelectList()
+        public List<IssueType> SelectList()
         {
             List<IssueType> types = new List<IssueType>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

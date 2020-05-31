@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class IssueStateDao
     {
-        public static State GetIssueCurrentState(int issueId)
+        private string connectionString;
+
+        public IssueStateDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public State GetIssueCurrentState(int issueId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

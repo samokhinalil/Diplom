@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,6 +12,13 @@ namespace Storage
 {
     public class IssueDateCalculatorDao
     {
+        private string connectionString;
+
+        public IssueDateCalculatorDao(string connectionStringName)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
         private IssueListView calculatingIssue;
         private const int avgIssueCompletionTimeInDays = 7;
         private Complexity issueComplexity;
@@ -62,7 +70,7 @@ namespace Storage
 
         private void RecalculateEndDateLowerPriorityIssues()
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -81,7 +89,7 @@ namespace Storage
         private Complexity GetIssueComplexityByName(string complexityName)
         {
             issueComplexity = new Complexity();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -106,7 +114,7 @@ namespace Storage
         private Priority GetIssuePriorityByName(string priorityName)
         {
             issuePriority = new Priority();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -128,11 +136,11 @@ namespace Storage
             return issuePriority;
         }
 
-        private static List<ActiveEmployeeIssue> GetActiveEmployeeIssues(int employeeId)
+        private List<ActiveEmployeeIssue> GetActiveEmployeeIssues(int employeeId)
         {
             List<ActiveEmployeeIssue> activeEmployeeIssues = new List<ActiveEmployeeIssue>();
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

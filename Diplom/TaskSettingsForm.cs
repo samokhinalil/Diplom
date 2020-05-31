@@ -16,6 +16,11 @@ namespace Diplom
     {
         FieldValidator validator = new FieldValidator();
 
+        private IssueTypeDao issueTypeDao = new IssueTypeDao(ConnectionString.ConnectionStringName);
+        private PriorityDao priorityDao = new PriorityDao(ConnectionString.ConnectionStringName);
+        private ComplexityDao complexityDao = new ComplexityDao(ConnectionString.ConnectionStringName);
+        private StateDao stateDao = new StateDao(ConnectionString.ConnectionStringName);
+
         public TaskSettingsForm()
         {
             InitializeComponent();
@@ -36,25 +41,25 @@ namespace Diplom
         private void UpdateDgvTypes()
         {
             dgvTypes.DataSource = null;
-            dgvTypes.DataSource = IssueTypeDao.SelectList();
+            dgvTypes.DataSource = issueTypeDao.SelectList();
         }
 
         private void UpdateDgvState()
         {
             dgvState.DataSource = null;
-            dgvState.DataSource = StateDao.SelectList();
+            dgvState.DataSource = stateDao.SelectList();
         }
 
         private void UpdateDgvPriorities()
         {
             dgvPriorities.DataSource = null;
-            dgvPriorities.DataSource = PriorityDao.SelectList();
+            dgvPriorities.DataSource = priorityDao.SelectList();
         }
 
         private void UpdateDgvComplexity()
         {
             dgvComplexity.DataSource = null;
-            dgvComplexity.DataSource = ComplexityDao.SelectList();
+            dgvComplexity.DataSource = complexityDao.SelectList();
         }
 
         private void BtnAddPriority_Click(object sender, EventArgs e)
@@ -63,7 +68,7 @@ namespace Diplom
             {
                 if (int.TryParse(tbPriorityValue.Text, out int r))
                 {
-                    PriorityDao.Add(new Priority(tbPriorityName.Text, int.Parse(tbPriorityValue.Text)));
+                    priorityDao.Add(new Priority(tbPriorityName.Text, int.Parse(tbPriorityValue.Text)));
                     UpdateDgvPriorities();
                     tbPriorityName.Clear();
                     tbPriorityValue.Clear();
@@ -90,7 +95,7 @@ namespace Diplom
                     Priority priority = (Priority)dgvPriorities.CurrentRow.DataBoundItem;
                     priority.PriorityName = tbPriorityName.Text;
                     priority.PriorityValue = int.Parse(tbPriorityValue.Text);
-                    PriorityDao.Edit(priority);
+                    priorityDao.Edit(priority);
                     UpdateDgvPriorities();
                 }
                 else
@@ -121,7 +126,7 @@ namespace Diplom
             {
                 if (int.TryParse(tbComplexityValue.Text, out int r))
                 {
-                    ComplexityDao.Add(new Complexity(tbComplexityName.Text, int.Parse(tbComplexityValue.Text)));
+                    complexityDao.Add(new Complexity(tbComplexityName.Text, int.Parse(tbComplexityValue.Text)));
                     UpdateDgvComplexity();
                     tbComplexityName.Clear();
                     tbComplexityValue.Clear();
@@ -148,7 +153,7 @@ namespace Diplom
                     Complexity complexity = (Complexity)dgvComplexity.CurrentRow.DataBoundItem;
                     complexity.ComplexityName = tbComplexityName.Text;
                     complexity.ComplexityValue = int.Parse(tbComplexityValue.Text);
-                    ComplexityDao.Edit(complexity);
+                    complexityDao.Edit(complexity);
                     UpdateDgvComplexity();
                 }
                 else
@@ -177,7 +182,7 @@ namespace Diplom
         {
             if (!tbStateName.Text.Equals(string.Empty))
             {
-                StateDao.Add(new State(tbStateName.Text));
+                stateDao.Add(new State(tbStateName.Text));
                 UpdateDgvState();
                 tbStateName.Clear();
             }
@@ -194,7 +199,7 @@ namespace Diplom
             {
                 State state = (State)dgvState.CurrentRow.DataBoundItem;
                 state.StateName = tbStateName.Text;
-                StateDao.Edit(state);
+                stateDao.Edit(state);
                 UpdateDgvState();
             }
             else
@@ -216,7 +221,7 @@ namespace Diplom
         {
             if (!tbTypeName.Text.Equals(string.Empty))
             {
-                IssueTypeDao.Add(new IssueType(tbTypeName.Text.Trim()));
+                issueTypeDao.Add(new IssueType(tbTypeName.Text.Trim()));
                 UpdateDgvTypes();
                 tbTypeName.Clear();
             }
@@ -233,7 +238,7 @@ namespace Diplom
             {
                 IssueType type = (IssueType)dgvTypes.CurrentRow.DataBoundItem;
                 type.TypeName = tbTypeName.Text.Trim();
-                IssueTypeDao.Edit(type);
+                issueTypeDao.Edit(type);
                 UpdateDgvTypes();
             }
             else

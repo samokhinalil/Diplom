@@ -14,6 +14,8 @@ namespace Diplom
 {
     public partial class PositionListForm : Form
     {
+        private PositionDao positionDao = new PositionDao(ConnectionString.ConnectionStringName);
+
         public PositionListForm()
         {
             InitializeComponent();
@@ -25,12 +27,12 @@ namespace Diplom
         private void UpdateDgvPositions()
         {
             dgvPositions.DataSource = null;
-            dgvPositions.DataSource = PositionDao.SelectList();
+            dgvPositions.DataSource = positionDao.SelectList();
         }
 
         private void BtnAddPosition_Click(object sender, EventArgs e)
         {
-            PositionDao.Add(new Position(tbPositionName.Text));
+            positionDao.Add(new Position(tbPositionName.Text));
             UpdateDgvPositions();
             tbPositionName.Clear();
         }
@@ -39,7 +41,7 @@ namespace Diplom
         {
             Position position = (Position)dgvPositions.CurrentRow.DataBoundItem;
             position.PositionName = tbPositionName.Text;
-            PositionDao.Edit(position);
+            positionDao.Edit(position);
             UpdateDgvPositions();
         }
 

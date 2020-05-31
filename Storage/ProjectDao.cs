@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class ProjectDao
     {
-        public static void Add(Project project)
+        private string connectionString;
+
+        public ProjectDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void Add(Project project)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -36,9 +44,9 @@ namespace Storage
             }
         }
 
-        public static void Edit(Project project)
+        public void Edit(Project project)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -55,10 +63,10 @@ namespace Storage
             }
         }
 
-        public static List<Project> SelectList()
+        public List<Project> SelectList()
         {
             List<Project> projects = new List<Project>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -82,10 +90,10 @@ namespace Storage
             return projects;
         }
 
-        public static List<Project> GetEmployeeProjects(int employeeId)
+        public List<Project> GetEmployeeProjects(int employeeId)
         {
             List<Project> projects = new List<Project>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

@@ -16,6 +16,13 @@ namespace Diplom
     {
         private Access _access;
 
+        private ProjectDao projectDao = new ProjectDao(ConnectionString.ConnectionStringName);
+        private IssueDao issueDao = new IssueDao(ConnectionString.ConnectionStringName);
+        private IssueTypeDao issueTypeDao = new IssueTypeDao(ConnectionString.ConnectionStringName);
+        private PriorityDao priorityDao = new PriorityDao(ConnectionString.ConnectionStringName);
+        private ComplexityDao complexityDao = new ComplexityDao(ConnectionString.ConnectionStringName);
+        private StateDao stateDao = new StateDao(ConnectionString.ConnectionStringName);
+
         public int ID { get; set; }
         public string IssueName { get; set; }
         public IssueType Type { get; set; }
@@ -109,7 +116,7 @@ namespace Diplom
                     subTaskForm.CurrentState.ID,
                     subTaskForm.CurrentState.StateName);
 
-                subIssue.ID = IssueDao.Add(subIssue.IssueName,
+                subIssue.ID = issueDao.Add(subIssue.IssueName,
                               subIssue.PriorityID,
                               subIssue.ComplexityID,
                               subIssue.TypeID,
@@ -144,7 +151,7 @@ namespace Diplom
                     subTaskForm.CurrentState.ID,
                     subTaskForm.CurrentState.StateName);
 
-                    IssueDao.Edit(editedSubIssue.ID,
+                    issueDao.Edit(editedSubIssue.ID,
                                   editedSubIssue.IssueName,
                                   editedSubIssue.PriorityID,
                                   editedSubIssue.ComplexityID,
@@ -231,7 +238,7 @@ namespace Diplom
                     MessageBoxButtons.OKCancel,
                     MessageBoxIcon.Warning) == DialogResult.OK)
                 {
-                    IssueDao.DeleteSubIssue(subissue.ID);
+                    issueDao.DeleteSubIssue(subissue.ID);
 
                     int index = SubIssues.FindIndex(i => i.ID == subissue.ID);
                     SubIssues.RemoveAt(index);
@@ -252,14 +259,14 @@ namespace Diplom
             cbType.DataSource = null;
             cbType.DisplayMember = "TypeName";
             cbType.ValueMember = "ID";
-            cbType.DataSource = IssueTypeDao.SelectList();
+            cbType.DataSource = issueTypeDao.SelectList();
             cbType.SelectedValue = selected;
         }
 
         private void InitPriorityComboBox(int selected)
         {
             cbPriority.DataSource = null;
-            cbPriority.DataSource = PriorityDao.SelectList();
+            cbPriority.DataSource = priorityDao.SelectList();
             cbPriority.DisplayMember = "PriorityName";
             cbPriority.ValueMember = "ID";
             cbPriority.SelectedValue = selected;
@@ -268,7 +275,7 @@ namespace Diplom
         private void InitComplexityComboBox(int selected)
         {
             cbComplexity.DataSource = null;
-            cbComplexity.DataSource = ComplexityDao.SelectList();
+            cbComplexity.DataSource = complexityDao.SelectList();
             cbComplexity.DisplayMember = "ComplexityName";
             cbComplexity.ValueMember = "ID";
             cbComplexity.SelectedValue = selected;
@@ -277,7 +284,7 @@ namespace Diplom
         private void InitProjectComboBox(int selected)
         {
             cbProject.DataSource = null;
-            cbProject.DataSource = ProjectDao.SelectList();
+            cbProject.DataSource = projectDao.SelectList();
             cbProject.DisplayMember = "ProjectName";
             cbProject.ValueMember = "ID";
             cbProject.SelectedValue = selected;
@@ -286,7 +293,7 @@ namespace Diplom
         private void InitStateComboBox(int selected)
         {
             cbState.DataSource = null;
-            cbState.DataSource = StateDao.SelectList();
+            cbState.DataSource = stateDao.SelectList();
             cbState.DisplayMember = "StateName";
             cbState.ValueMember = "ID";
             cbState.SelectedValue = selected;
@@ -303,7 +310,7 @@ namespace Diplom
                 {
                     if (id != 0)
                     {
-                        IssueDao.ChangeIssueState(
+                        issueDao.ChangeIssueState(
                             id,
                             stateListForm.State.ID,
                             _access.Employee.ID);

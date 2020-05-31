@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace Storage
 {
     public class RoleDao
     {
-        public static List<Role> SelectList()
+        private string connectionString;
+
+        public RoleDao(string connectionStringName)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public List<Role> SelectList()
         {
             List<Role> roles = new List<Role>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

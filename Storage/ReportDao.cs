@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace Storage
 {
     public class ReportDao
     {
-        public static List<SolvedTasksComplexityReport> GetSolvedTasksComplexityCountReportReport(DateTime fromDate, DateTime toDate)
+        private string connectionString;
+
+        public ReportDao(string connectionStringName)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public List<SolvedTasksComplexityReport> GetSolvedTasksComplexityCountReportReport(DateTime fromDate, DateTime toDate)
         {
             List<SolvedTasksComplexityReport> list = new List<SolvedTasksComplexityReport>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -39,11 +47,11 @@ namespace Storage
             return list;
         }
 
-        public static List<StateEmployeeTasksCountReport> GetStateEmployeeTasksCountReport(
+        public List<StateEmployeeTasksCountReport> GetStateEmployeeTasksCountReport(
             int employeeId, DateTime fromDate, DateTime toDate)
         {
             List<StateEmployeeTasksCountReport> list = new List<StateEmployeeTasksCountReport>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -69,11 +77,11 @@ namespace Storage
             return list;
         }
 
-        public static List<StateEmployeeTasksCountReport> GetStateTasksCountReport(
+        public List<StateEmployeeTasksCountReport> GetStateTasksCountReport(
             DateTime fromDate, DateTime toDate)
         {
             List<StateEmployeeTasksCountReport> list = new List<StateEmployeeTasksCountReport>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -98,11 +106,11 @@ namespace Storage
             return list;
         }
 
-        public static List<TimeOutTasksCountReport> GetTimeOutTasksCountReport(
+        public List<TimeOutTasksCountReport> GetTimeOutTasksCountReport(
             DateTime fromDate, DateTime toDate)
         {
             List<TimeOutTasksCountReport> list = new List<TimeOutTasksCountReport>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -127,11 +135,11 @@ namespace Storage
             return list;
         }
 
-        public static List<TimeOutTasksInfoReport> GetTimeOutTasksInfoReport(
+        public List<TimeOutTasksInfoReport> GetTimeOutTasksInfoReport(
             DateTime fromDate, DateTime toDate)
         {
             List<TimeOutTasksInfoReport> list = new List<TimeOutTasksInfoReport>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

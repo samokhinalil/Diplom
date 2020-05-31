@@ -1,4 +1,5 @@
-﻿using Storage;
+﻿using EntityLibrary;
+using Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,7 +26,8 @@ namespace Diplom
                 string datePath = DateTime.Now.ToString("ddMMyyyy");
                 string path = tbFilePath.Text +"\\"+ datePath + ".bak";
 
-                BackUpDao.CreateBackUp(path);
+                BackUpDao backUpDao = new BackUpDao(ConnectionString.ConnectionStringName);
+                backUpDao.CreateBackUp(path);
 
                 MessageBox.Show("Копия успешно создана",
                     "Информационное сообщение",
@@ -41,7 +43,8 @@ namespace Diplom
 
         private void BtnRestoreDB_Click(object sender, EventArgs e)
         {
-            BackUpDao.RestoreDataBase(tbRestoreFileName.Text);
+            BackUpDao backUpDao = new BackUpDao(ConnectionString.ConnectionStringName);
+            backUpDao.RestoreDataBase(tbRestoreFileName.Text);
         }
 
         private void BtnChooseBackUpDirectory_Click(object sender, EventArgs e)

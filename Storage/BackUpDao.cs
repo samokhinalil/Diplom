@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class BackUpDao
     {
-        public static void CreateBackUp(string filePath)
+        private string connectionString;
+
+        public BackUpDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void CreateBackUp(string filePath)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -28,7 +36,7 @@ namespace Storage
             }
         }
 
-        public static void RestoreDataBase(string fileName)
+        public void RestoreDataBase(string fileName)
         {
 
         }

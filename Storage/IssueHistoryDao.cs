@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace Storage
 {
     public class IssueHistoryDao
     {
-        public static List<IssueHistory> GetEmployeeIssuesHistory(int employeeId)
+        private string connectionString;
+
+        public IssueHistoryDao(string connectionStringName)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public List<IssueHistory> GetEmployeeIssuesHistory(int employeeId)
         {
             List<IssueHistory> history = new List<IssueHistory>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

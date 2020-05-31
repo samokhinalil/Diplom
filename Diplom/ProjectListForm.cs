@@ -15,6 +15,8 @@ namespace Diplom
 {
     public partial class ProjectListForm : Form
     {
+        private ProjectDao projectDao = new ProjectDao(ConnectionString.ConnectionStringName);
+
         public ProjectListForm(Access access)
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace Diplom
         private void GetProjectList()
         {
             dgvProjects.DataSource = null;
-            dgvProjects.DataSource = ProjectDao.SelectList();
+            dgvProjects.DataSource = projectDao.SelectList();
         }
 
         private void BtnAddProject_Click(object sender, EventArgs e)
@@ -33,7 +35,7 @@ namespace Diplom
             projectForm.ShowDialog();
             if(projectForm.DialogResult == DialogResult.OK)
             {
-                ProjectDao.Add(new Project(projectForm.ProjectName,
+                projectDao.Add(new Project(projectForm.ProjectName,
                     projectForm.StartDate));
                 GetProjectList();
             }
@@ -50,7 +52,7 @@ namespace Diplom
             {
                 editingProject.ProjectName = projectForm.ProjectName;
                 editingProject.StartDate = projectForm.StartDate;
-                ProjectDao.Edit(editingProject);
+                projectDao.Edit(editingProject);
                 GetProjectList();
             }
         }

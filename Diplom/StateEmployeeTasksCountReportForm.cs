@@ -15,6 +15,9 @@ namespace Diplom
 {
     public partial class StateEmployeeTasksCountReportForm : Form
     {
+        private EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+        private ReportDao reportDao = new ReportDao(ConnectionString.ConnectionStringName);
+
         public StateEmployeeTasksCountReportForm()
         {
             InitializeComponent();
@@ -30,7 +33,8 @@ namespace Diplom
             if(cbEmployee.SelectedItem != null)
             {
                 int employeeId = ((Employee)cbEmployee.SelectedItem).ID;
-                var myData = ReportDao.GetStateEmployeeTasksCountReport(employeeId,
+                ReportDao reportDao = new ReportDao(ConnectionString.ConnectionStringName);
+                var myData = reportDao.GetStateEmployeeTasksCountReport(employeeId,
                     ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
                 reportViewer1.LocalReport.DataSources.Clear();
@@ -50,7 +54,7 @@ namespace Diplom
             }
             else
             {
-                var myData = ReportDao.GetStateTasksCountReport(
+                var myData = reportDao.GetStateTasksCountReport(
                     ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
                 reportViewer1.LocalReport.DataSources.Clear();
@@ -74,7 +78,7 @@ namespace Diplom
         private void UpdateComboBoxEmployees()
         {
             cbEmployee.DataSource = null;
-            cbEmployee.DataSource = EmployeeDao.SelectList();
+            cbEmployee.DataSource = employeeDao.SelectList();
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
             if (cbEmployee.DataSource != null)

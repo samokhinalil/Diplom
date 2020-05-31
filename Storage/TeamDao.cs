@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,9 +12,16 @@ namespace Storage
 {
     public class TeamDao
     {
-        public static void AddEmployeeToProject(int projectId, int employeeId)
+        private string connectionString;
+
+        public TeamDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void AddEmployeeToProject(int projectId, int employeeId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -29,9 +37,9 @@ namespace Storage
             }
         }
 
-        public static void DeleteEmployeeFromProject(int projectId, int employeeId)
+        public void DeleteEmployeeFromProject(int projectId, int employeeId)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -47,10 +55,10 @@ namespace Storage
             }
         }
 
-        public static List<Employee> GetProjectTeam(int projectId)
+        public List<Employee> GetProjectTeam(int projectId)
         {
             List<Employee> employees = new List<Employee>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,8 @@ namespace Storage
         {
             get
             {
-                var parts = ConnectionString.CurrentConnectionString.Split(';');
+                var parts = ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString
+                    .Split(';');
                 return new ConnectionString(parts[0].Trim(),
                     parts[1].Trim(), parts[2].Trim(), parts[3].Trim(), parts[4].Trim());
             }

@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,11 +10,18 @@ using System.Threading.Tasks;
 
 namespace Storage
 {
-    public static class PriorityDao
+    public class PriorityDao
     {
-        public static void Add(Priority priority)
+        private string connectionString;
+
+        public PriorityDao(string connectionStringName)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public void Add(Priority priority)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -36,9 +44,9 @@ namespace Storage
             }
         }
 
-        public static void Edit(Priority priority)
+        public void Edit(Priority priority)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -54,10 +62,10 @@ namespace Storage
             }
         }
 
-        public static List<Priority> SelectList()
+        public List<Priority> SelectList()
         {
             List<Priority> priorities = new List<Priority>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

@@ -1,4 +1,5 @@
-﻿using Microsoft.Reporting.WinForms;
+﻿using EntityLibrary;
+using Microsoft.Reporting.WinForms;
 using Storage;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,8 @@ namespace Diplom
 
         private void BtnGenerateReport_Click(object sender, EventArgs e)
         {
-            var myData = ReportDao.GetTimeOutTasksInfoReport(
+            ReportDao reportDao = new ReportDao(ConnectionString.ConnectionStringName);
+            var myData = reportDao.GetTimeOutTasksInfoReport(
                 ctlDateFrom.Value.Date, ctlDateTo.Value.Date);
 
             reportViewer2.LocalReport.DataSources.Clear();

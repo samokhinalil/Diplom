@@ -24,7 +24,8 @@ namespace Diplom
         private void InitEmployeeComboBox()
         {
             cbEmployee.DataSource = null;
-            cbEmployee.DataSource = EmployeeDao.SelectList();
+            EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+            cbEmployee.DataSource = employeeDao.SelectList();
             cbEmployee.DisplayMember = "FullName";
             cbEmployee.ValueMember = "ID";
 
@@ -40,7 +41,8 @@ namespace Diplom
         private void InitRoleComboBox()
         {
             cbRole.DataSource = null;
-            cbRole.DataSource = RoleDao.SelectList();
+            RoleDao roleDao = new RoleDao(ConnectionString.ConnectionStringName);
+            cbRole.DataSource = roleDao.SelectList();
             cbRole.DisplayMember = "RoleName";
             cbRole.ValueMember = "ID";
         }
@@ -68,7 +70,8 @@ namespace Diplom
             }
             else
             {
-                AccessDao.GrantAccessRights(new Access(
+                AccessDao accessDao = new AccessDao("DefaultConnectionString");
+                accessDao.GrantAccessRights(new Access(
                     (Employee)cbEmployee.SelectedItem,
                     tbLogin.Text,
                     tbPassword.Text,

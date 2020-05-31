@@ -16,6 +16,8 @@ namespace Diplom
     {
         private Access _access;
 
+        private EmployeeDao employeeDao = new EmployeeDao(ConnectionString.ConnectionStringName);
+
         public EmployeeMenuForm(Access access)
         {
             InitializeComponent();
@@ -38,7 +40,7 @@ namespace Diplom
                 _access.Employee.Email = employeeForm.Email;
                 _access.Employee.Position = employeeForm.Position;
 
-                EmployeeDao.Edit(_access.Employee);
+                employeeDao.Edit(_access.Employee);
             }
         }
 

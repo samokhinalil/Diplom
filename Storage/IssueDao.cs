@@ -1,6 +1,7 @@
 ﻿using EntityLibrary;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,12 +12,19 @@ namespace Storage
 {
     public class IssueDao
     {
-        public static int Add(string name, int priorityId,
+        private string connectionString;
+
+        public IssueDao(string connectionStringName)
+        {
+            connectionString = ConfigurationManager.ConnectionStrings[connectionStringName].ConnectionString;
+        }
+
+        public int Add(string name, int priorityId,
             int complexityId, int typeId, int stateID,
             int projectId, string description,
             int employeeWhoAdded)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -45,13 +53,13 @@ namespace Storage
             }
         }
 
-        public static void Edit(int id, string name,
+        public void Edit(int id, string name,
             int priorityId, int complexityId, int typeId,
             int projectId, string description,
             int newStateId,
             int employeeWhoChanged)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -74,10 +82,10 @@ namespace Storage
             }
         }
 
-        public static IssueView GetByID(int id)
+        public IssueView GetByID(int id)
         {
             IssueView issue = new IssueView();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -111,10 +119,10 @@ namespace Storage
             return issue;
         }
 
-        public static List<IssueView> GetSubIssues(int taskId)
+        public List<IssueView> GetSubIssues(int taskId)
         {
             List<IssueView> subissues = new List<IssueView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -145,10 +153,10 @@ namespace Storage
             return subissues;
         }
 
-        public static List<IssueListView> SelectList()
+        public List<IssueListView> SelectList()
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -175,10 +183,10 @@ namespace Storage
             return issuesView;
         }
 
-        public static List<IssueListView> GetProjectIssues(int projectId)
+        public List<IssueListView> GetProjectIssues(int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -206,10 +214,10 @@ namespace Storage
             return issuesView;
         }
 
-        public static List<IssueListView> GetEmployeeIssues(int employeeId, int projectId)
+        public List<IssueListView> GetEmployeeIssues(int employeeId, int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -238,10 +246,10 @@ namespace Storage
             return issuesView;
         }
 
-        public static List<IssueListView> GetEmployeeOpenIssues(int employeeId, int projectId)
+        public List<IssueListView> GetEmployeeOpenIssues(int employeeId, int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -270,10 +278,10 @@ namespace Storage
             return issuesView;
         }
 
-        public static List<IssueListView> GetProjectOpenIssues(int projectId)
+        public List<IssueListView> GetProjectOpenIssues(int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -301,10 +309,10 @@ namespace Storage
             return issuesView;
         }
 
-        public static List<IssueListView> GetEmployeeExecutedIssues(int employeeId, int projectId)
+        public List<IssueListView> GetEmployeeExecutedIssues(int employeeId, int projectId)
         {
             List<IssueListView> issuesView = new List<IssueListView>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -333,9 +341,9 @@ namespace Storage
             return issuesView;
         }
 
-        public static void ChangeIssueState(int issueID, int stateID, int employeeWhoChanged)
+        public void ChangeIssueState(int issueID, int stateID, int employeeWhoChanged)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -352,9 +360,9 @@ namespace Storage
             }
         }
 
-        public static void CloseExecutedIssue(int employeeId, int issueId)
+        public void CloseExecutedIssue(int employeeId, int issueId)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -369,7 +377,7 @@ namespace Storage
             }
         }
 
-        public static void CloseAllExecutedIssues(int employeeId, List<IssueListView> issues)
+        public void CloseAllExecutedIssues(int employeeId, List<IssueListView> issues)
         {
             DataTable issuesIds = new DataTable();
             issuesIds.Columns.Add("subTaskId", typeof(int));
@@ -378,7 +386,7 @@ namespace Storage
                 issuesIds.Rows.Add(issue.ID);
             }
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -395,9 +403,9 @@ namespace Storage
             }
         }
 
-        public static void DeleteSubIssue(int subIssueId)
+        public void DeleteSubIssue(int subIssueId)
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -412,7 +420,7 @@ namespace Storage
             }
         }
 
-        public static void InsertIssueSubIssues(int taskId, List<IssueView> subIssues)
+        public void InsertIssueSubIssues(int taskId, List<IssueView> subIssues)
         {
             DataTable subissuesIds = new DataTable();
             subissuesIds.Columns.Add("subTaskId", typeof(int));
@@ -420,7 +428,7 @@ namespace Storage
             {
                 subissuesIds.Rows.Add(subIssue.ID);
             }
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -437,7 +445,7 @@ namespace Storage
             }
         }
 
-        public static void AppointIssueToEmployee(int taskId, int executorId,
+        public void AppointIssueToEmployee(int taskId, int executorId,
             int appointerEmployeeId, DateTime endDate)
         {
             List<IssueView> subIssues = GetSubIssues(taskId);
@@ -449,7 +457,7 @@ namespace Storage
                 subissuesIds.Rows.Add(subIssue.ID);
             }
 
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {
@@ -469,10 +477,10 @@ namespace Storage
             }
         }
 
-        public static List<IssueDetailInfo> GetIssueDetailInfo(int issueId)
+        public List<IssueDetailInfo> GetIssueDetailInfo(int issueId)
         {
             List<IssueDetailInfo> issue = new List<IssueDetailInfo>();
-            using (SqlConnection connection = new SqlConnection(ConnectionString.CurrentConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 using (SqlCommand command = connection.CreateCommand())
                 {

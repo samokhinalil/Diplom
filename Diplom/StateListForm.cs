@@ -16,12 +16,14 @@ namespace Diplom
     {
         public State State { get; set; }
 
+        private StateDao stateDao = new StateDao(ConnectionString.ConnectionStringName);
+
         public StateListForm()
         {
             InitializeComponent();
 
             listBoxStates.DataSource = null;
-            listBoxStates.DataSource = StateDao.SelectList();
+            listBoxStates.DataSource = stateDao.SelectList();
             listBoxStates.DisplayMember = "StateName";
             listBoxStates.ValueMember = "ID";
         }
